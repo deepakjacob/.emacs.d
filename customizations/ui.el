@@ -8,14 +8,6 @@
 (menu-bar-mode -1)
 ;; Turn of the tool bar at the top of the each frame because it's distracting
 (tool-bar-mode -1)
-;; Show line numbers
-(global-linum-mode)
-
-;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Operator Mono") ;;default font
-;; increase font size for better readability
-(set-face-attribute 'default nil :height 170)
-(set-face-attribute 'fringe nil :background nil)
 
 (setq-default cursor-type 'bar) ;;make cursor a line
 ;; No cursor blinking, it's distracting
@@ -37,6 +29,14 @@
 (load-theme 'spacemacs-dark t)
 (zerodark-setup-modeline-format)
 
+;; Show line numbers
+(global-linum-mode)
+
+;; Chnage the font to Operator Mono
+(set-face-attribute 'default nil :font "Operator Mono") ;;default font
+;; increase font size for better readability
+(set-face-attribute 'default nil :height 170)
+(set-face-attribute 'fringe nil :background nil)
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
