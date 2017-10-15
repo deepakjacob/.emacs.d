@@ -69,10 +69,6 @@
       (ns-get-selection-internal 'CLIPBOARD)
     (quit nil)))
 
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
 (setq electric-indent-mode t)
 (setq electric-pair-mode t)
 

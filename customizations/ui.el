@@ -75,7 +75,12 @@
 (require 'magit)
 (define-key global-map (kbd "C-c m") 'magit-status)
 
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
+
+
 

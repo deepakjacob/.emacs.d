@@ -99,8 +99,14 @@
     ;; ace-window
     ace-window
 
-    ;;dump-jump
+    ;; expand-region
+    expand-region
 
+    ;;dump-jump
+    dumb-jump
+
+    ;;neotree
+    neotree
 
     use-package))
 
@@ -166,4 +172,3 @@
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-js.el")
-
