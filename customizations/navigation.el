@@ -85,6 +85,8 @@
 
 ;; projectile everywhere!
 (projectile-global-mode)
+;; use ivy as the completion backend for projectile
+(setq projectile-completion-system 'ivy)
 
 ;; ace-window yay !!!
 (global-set-key (kbd "C-x o") 'ace-window)
