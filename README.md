@@ -10,7 +10,7 @@
    would delete `C:\Users\jason\AppData\Roaming\.emacs.d`.) This is
    where Emacs looks for configuration files, and deleting these files
    and directories will ensure that you start with a clean slate.
-3. Clone the .emacs.d from https://github.com/deepakjacob. Its contents should be a folder and place this folder as ~/.emacs.d
+3. Clone the .emacs.d from https://github.com/deepakjacob/.emacs.d. Its contents should be a folder and place this folder as ~/.emacs.d
 
 Then open Emacs.
 
