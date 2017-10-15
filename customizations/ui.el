@@ -14,7 +14,7 @@
 ;; Chnage the font to Operator Mono
 (set-face-attribute 'default nil :font "Operator Mono") ;;default font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 190)
+(set-face-attribute 'default nil :height 170)
 (set-face-attribute 'fringe nil :background nil)
 
 (setq-default cursor-type 'bar) ;;make cursor a line
@@ -35,6 +35,8 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'spacemacs-dark t)
+(zerodark-setup-modeline-format)
+
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
