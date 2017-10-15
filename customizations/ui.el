@@ -8,6 +8,8 @@
 (menu-bar-mode -1)
 ;; Turn of the tool bar at the top of the each frame because it's distracting
 (tool-bar-mode -1)
+;; Show line numbers
+(global-linum-mode)
 
 ;; Chnage the font to Operator Mono
 (set-face-attribute 'default nil :font "Operator Mono") ;;default font
@@ -15,13 +17,13 @@
 (set-face-attribute 'default nil :height 140)
 
 (setq-default cursor-type 'bar) ;;make cursor a line
+;; No cursor blinking, it's distracting
+(blink-cursor-mode 0)
 
 ;;default starting emacs size
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(width . 80))
 
-;; Show line numbers
-(global-linum-mode)
 
 ;; Color Themes
 ;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
@@ -57,8 +59,6 @@
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
 
-;; No cursor blinking, it's distracting
-(blink-cursor-mode 0)
 
 (global-prettify-symbols-mode +1)
 
@@ -75,6 +75,8 @@
 (require 'magit)
 (define-key global-map (kbd "C-c m") 'magit-status)
 
+;; load the all-the-icons prior to loading neotree
+(require 'all-the-icons)
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 

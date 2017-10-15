@@ -46,6 +46,16 @@
 ;; for selecting buffer and file names
 ;; (ido-ubiquitous-mode 1)
 
+;; Enhances M-x to allow easier execution of commands. Provides
+;; a filterable list of possible commands in the minibuffer
+;; http://www.emacswiki.org/emacs/Smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
+;; following keyboard shortcut is disabled for allowing counsel-smex to
+;; takecare of M-x command
+;; (global-set-key (kbd "M-x") 'smex)
+;; Above is configured along with ivy below
+
 ;; Use swiper and ivy mode for completion
 ;; Use swiper for navigation
 (ivy-mode 1)
@@ -70,18 +80,8 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 
-
-
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-
-
-;; Enhances M-x to allow easier execution of commands. Provides
-;; a filterable list of possible commands in the minibuffer
-;; http://www.emacswiki.org/emacs/Smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
 
 ;; projectile everywhere!
 (projectile-global-mode)
