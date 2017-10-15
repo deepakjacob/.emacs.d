@@ -41,8 +41,16 @@
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
-(setq auto-save-default nil)
+;;(setq auto-save-default nil)
+;;tab width to 4
+(setq-default tab-width 2)
+;; tab width for js2-mode
+(setq-default js2-basic-offset 2)
 
+(setq-default js-indent-level 2)
+(setq-default js2-highlight-level 2)
+(setq-default js2-strict-missing-semi-warning nil)
+(setq-default json-reformat:indent-width 2)
 
 ;; comments
 (defun toggle-comment-on-line ()
@@ -51,8 +59,6 @@
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
-;; yay rainbows!
-(rainbow-delimiters-mode t)
 
 ;; use 2 spaces for tabs
 (defun die-tabs ()
@@ -72,6 +78,46 @@
 (setq electric-indent-mode t)
 (setq electric-pair-mode t)
 
+;;rainbow parens!
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  )
+
+;;multiple cursors
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-." . mc/mark-next-like-this))
+)
+
+
+;; comments
+(defun toggle-comment-on-line ()
+  "comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+(global-set-key (kbd "C-;") 'toggle-comment-on-line)
+
 (add-hook 'after-init-hook 'global-company-mode)
+
+
+(require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
+;; highlight-sysmbol configurations
+(global-set-key [(control f3)] 'highlight-symbol-at-point)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+(global-set-key [(control shift f3)] 'unhighlight-regexp)
+(global-set-key [(control shift mouse-1)]
+                (lambda (event)
+                  (interactive "e")
+                  (save-excursion
+                    (goto-char (posn-point (event-start event)))
+                    (highlight-symbol-at-point))))
+
 
 
