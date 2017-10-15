@@ -14,7 +14,8 @@
 ;; Chnage the font to Operator Mono
 (set-face-attribute 'default nil :font "Operator Mono") ;;default font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 190)
+(set-face-attribute 'fringe nil :background nil)
 
 (setq-default cursor-type 'bar) ;;make cursor a line
 ;; No cursor blinking, it's distracting
@@ -22,7 +23,8 @@
 
 ;;default starting emacs size
 (add-to-list 'default-frame-alist '(height . 90))
-(add-to-list 'default-frame-alist '(width . 80))
+(add-to-list 'default-frame-alist '(width . 100))
+
 
 
 ;; Color Themes
