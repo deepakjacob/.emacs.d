@@ -21,7 +21,7 @@
 (blink-cursor-mode 0)
 
 ;;default starting emacs size
-(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(height . 90))
 (add-to-list 'default-frame-alist '(width . 80))
 
 
