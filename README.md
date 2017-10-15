@@ -1,4 +1,4 @@
-# this is a React/Node/JSON/Clojure-friendly emacs config
+# React/Node/JSON/Clojure-friendly emacs config
 
 
 ## Installing
