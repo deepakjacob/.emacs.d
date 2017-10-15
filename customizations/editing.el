@@ -72,3 +72,6 @@
 (setq electric-indent-mode t)
 (setq electric-pair-mode t)
 
+(add-hook 'after-init-hook 'global-company-mode)
+
+

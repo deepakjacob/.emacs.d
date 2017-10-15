@@ -108,6 +108,12 @@
     ;;neotree
     neotree
 
+    page-break-lines
+
+    smooth-scrolling
+
+    company
+
     use-package))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -173,3 +179,22 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(custom-safe-themes
+   (quote
+    ("86e2d09ebcfff3b7ec95543bce5a163384579a2bf2e2a81bfba8908b7a0c44df" default)))
+ '(package-selected-packages
+   (quote
+    (use-package smooth-scrolling page-break-lines neotree dumb-jump expand-region ace-window spacemacs-theme zerodark-theme json-mode rjsx-mode counsel magit tagedit rainbow-delimiters projectile smex cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
