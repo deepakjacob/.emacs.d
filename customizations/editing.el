@@ -105,8 +105,8 @@
                     (highlight-symbol-at-point))))
 
 
-(setq electric-indent-mode t)
-(setq electric-pair-mode t)
+(electric-indent-mode)
+(electric-pair-mode)
 
 
 
