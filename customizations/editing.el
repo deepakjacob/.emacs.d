@@ -109,6 +109,11 @@
 (electric-pair-mode)
 
 
+(require 'highlight-symbol)
+(global-set-key [(control f6)] 'highlight-symbol)
+(global-set-key [f6] 'highlight-symbol-next)
+(global-set-key [(shift f6)] 'highlight-symbol-prev)
+(global-set-key [(meta f6)] 'highlight-symbol-query-replace)
 
 
 
