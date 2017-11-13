@@ -12,11 +12,13 @@
 (setq-default cursor-type 'bar) ;;make cursor a line
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
+(set-cursor-color "#ffffff")
 
 ;;default starting emacs size
-(add-to-list 'default-frame-alist '(height . 90))
+;; (add-to-list 'default-frame-alist '(height . 90))
+;; (add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(height .100))
 (add-to-list 'default-frame-alist '(width . 100))
-
 
 
 ;; Color Themes
@@ -26,8 +28,23 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'spacemacs-dark t)
-(zerodark-setup-modeline-format)
+;;(load-theme 'spacemacs-dark t)
+;;(zerodark-setup-modeline-format)
+(require 'doom-themes)
+
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
+;; may have their own settings.
+(load-theme 'doom-one t)
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
 
 ;; Show line numbers
 (global-linum-mode)
@@ -80,9 +97,16 @@
 (define-key global-map (kbd "C-c m") 'magit-status)
 
 ;; load the all-the-icons prior to loading neotree
-(require 'all-the-icons)
+;; (require 'all-the-icons)
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+(global-set-key [f9] 'neotree-dir)
+;;(setq neo-theme (if (display-graphic-p) 'ascii 'ascii))
+;; Enable custom neotree theme
+(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+
+(defun text-scale-twice ()(interactive)(progn(text-scale-adjust 0)(text-scale-decrease 1)))
+(add-hook 'neo-after-create-hook (lambda (_)(call-interactively 'text-scale-twice)))
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
