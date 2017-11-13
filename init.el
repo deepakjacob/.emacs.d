@@ -120,7 +120,7 @@
 
     js2-refactor
     
-    doom-theme
+    doom-themes
     
     highlight-symbol
 
