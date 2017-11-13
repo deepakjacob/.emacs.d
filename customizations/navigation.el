@@ -103,4 +103,5 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-
+(global-set-key (kbd "q") 'minibuffer-keyboard-quit)
+(global-set-key (kbd "C-g") 'minibuffer-keyboard-quit)
