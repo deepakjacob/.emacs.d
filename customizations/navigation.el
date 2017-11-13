@@ -85,6 +85,8 @@
 
 ;; projectile everywhere!
 (projectile-global-mode)
+;; projectile defect fix 
+(setq projectile-mode-line '(:eval (format " Projectile[%s]" (projectile-project-name))))
 ;; use ivy as the completion backend for projectile
 (setq projectile-completion-system 'ivy)
 
