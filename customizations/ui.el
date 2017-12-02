@@ -50,9 +50,9 @@
 (global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Operator Mono") ;;default font
+(set-face-attribute 'default nil :font "IBM Plex Mono") ;;default font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 170)
+(set-face-attribute 'default nil :height 150)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; Uncomment the lines below by removing semicolons and play with the
