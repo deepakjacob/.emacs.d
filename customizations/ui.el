@@ -17,7 +17,7 @@
 ;;default starting emacs size
 ;; (add-to-list 'default-frame-alist '(height . 90))
 ;; (add-to-list 'default-frame-alist '(width . 100))
-(add-to-list 'default-frame-alist '(height .100))
+(add-to-list 'default-frame-alist '(height . 65))
 (add-to-list 'default-frame-alist '(width . 100))
 
 
@@ -112,15 +112,15 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(if (display-graphic-p)
-      ;;smooth scrolling in gui
-      (use-package smooth-scrolling
-        :ensure t
-        :init (smooth-scrolling-mode 1)
-        :diminish smooth-scrolling-mode
-        :config
-        (setq smooth-scroll-margin 1)
-        (smooth-scrolling-mode 1)))
+;;(if (display-graphic-p)
+;;     ;;smooth scrolling in gui
+;;      (use-package smooth-scrolling
+;;        :ensure t
+;;        :init (smooth-scrolling-mode 1)
+;;        :diminish smooth-scrolling-mode
+;;        :config
+;;        (setq smooth-scroll-margin 1)
+;;        (smooth-scrolling-mode 1)))
 
 ;; Turn ^L into nice <hr>
 (use-package page-break-lines

@@ -210,3 +210,10 @@ a `before-save-hook'."
 
 (provide 'prettier-js)
 ;;; prettier-js.el ends here
+
+
+(require 'prettier-js)
+(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+
