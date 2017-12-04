@@ -107,7 +107,7 @@
 
     ;;neotree
     neotree
-    
+
     spaceline
 
     page-break-lines
@@ -116,12 +116,15 @@
 
     company
 
+    ;; for javascript autocompletion
+    company-tern
+
     multiple-cursors
 
     js2-refactor
-    
+
     doom-themes
-    
+
     highlight-symbol
 
     use-package))
@@ -190,6 +193,9 @@
 
 (load "setup-js.el")
 
+;; code formatting
+(load "prettier-js.el")
+
 (global-set-key "\C-cy" '(lambda ()
                                  (interactive)
                                  (popup-menu 'yank-menu)))
@@ -241,21 +247,17 @@
                   '(lambda () (interactive) (global-text-scale-adjust 1)))
   (global-set-key (kbd "M-_")
                   '(lambda () (interactive) (global-text-scale-adjust -1)))
-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (company-tern use-package highlight-symbol doom-themes js2-refactor multiple-cursors company smooth-scrolling page-break-lines spaceline neotree dumb-jump expand-region ace-window spacemacs-theme zerodark-theme json-mode rjsx-mode counsel magit tagedit rainbow-delimiters projectile smex cider paredit exec-path-from-shell clojure-mode-extra-font-locking))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(powerline-active1 ((t (:inherit mode-line-emphasis :background "firebrick" :foreground "gray100"))))
- '(powerline-inactive1 ((t (:inherit mode-line-emphasis :background "dark orange" :foreground "gray100"))))
-
- '(powerline-default-separator (quote slant)))
-
-
-(require 'spaceline-config)
-(spaceline-emacs-theme)
-(spaceline-info-mode)
-
-
-
+ )

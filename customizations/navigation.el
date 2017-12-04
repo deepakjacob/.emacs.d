@@ -93,6 +93,27 @@
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
 (add-to-list 'projectile-globally-ignored-directories "functions/node_modules")
 (add-to-list 'projectile-globally-ignored-directories "src/mocks/node_modules")
+(add-to-list 'projectile-globally-ignored-directories "build/*")
+(add-to-list 'projectile-globally-ignored-directories "public/static/*")
+
+;; ace-window yay !!!
+(global-set-key (kbd "C-x o") 'ace-window)
+
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+  :ensure)
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key (kbd "M-q") 'minibuffer-keyboard-quit)
+(global-set-key (kbd "C-g") 'minibuffer-keyboard-quit)
+
 ;; ace-window yay !!!
 (global-set-key (kbd "C-x o") 'ace-window)
 
