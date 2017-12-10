@@ -52,7 +52,7 @@
 ;; Chnage the font to Operator Mono
 (set-face-attribute 'default nil :font "IBM Plex Mono") ;;default font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 160)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; Uncomment the lines below by removing semicolons and play with the
@@ -84,8 +84,7 @@
 (global-prettify-symbols-mode +1)
 
 ;; full path in title bar
-(setq-default frame-title-format '("")) ;;frame title
-;;(setq-default frame-title-format "%b (%f)")
+(setq-default frame-title-format "%b (%f)")
 
 ;; don't pop up font menu
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
@@ -124,10 +123,10 @@
 
 ;; Turn ^L into nice <hr>
 (use-package page-break-lines
+  
   :ensure t
   :diminish page-break-lines-mode
   :config
   (global-page-break-lines-mode t)
 )
-
 

@@ -116,7 +116,6 @@
 
     company
 
-    ;; for javascript autocompletion
     company-tern
 
     multiple-cursors
@@ -128,6 +127,7 @@
     highlight-symbol
 
     use-package))
+
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -247,17 +247,83 @@
                   '(lambda () (interactive) (global-text-scale-adjust 1)))
   (global-set-key (kbd "M-_")
                   '(lambda () (interactive) (global-text-scale-adjust -1)))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (company-tern use-package highlight-symbol doom-themes js2-refactor multiple-cursors company smooth-scrolling page-break-lines spaceline neotree dumb-jump expand-region ace-window spacemacs-theme zerodark-theme json-mode rjsx-mode counsel magit tagedit rainbow-delimiters projectile smex cider paredit exec-path-from-shell clojure-mode-extra-font-locking))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(powerline-active0 ((t (:inherit default :distant-foreground "red4"))))
+ '(powerline-active1 ((t (:inherit mode-line :background "red4" :foreground "white"))))
+ '(powerline-active2 ((t (:inherit mode-line :background "gray14" :foreground "gray100"))))
+ '(powerline-default-separator (quote slant))
+ '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "gray0"))))
+ '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "gray9")))))
+
+
+(require 'spaceline-config)
+(spaceline-emacs-theme)
+(spaceline-info-mode)
+
+
+
+(require 'diminish)
+(eval-after-load "projectile"
+  '(diminish 'projectile-mode))
+
+(eval-after-load "yas-minor-mode"
+  '(diminish 'yas-minor-mode))
+
+(eval-after-load "yasnippet"
+  '(diminish 'yas-minor-mode))
+
+(eval-after-load 'flycheck
+  '(diminish 'flycheck-mode))
+(diminish 'abbrev-mode)
+(eval-after-load 'auto-revert-mode
+  '(diminish 'auto-revert-mode))
+
+(eval-after-load 'company
+  '(diminish 'company-mode))
+
+(eval-after-load 'paredit
+  '(diminish 'paredit-mode))
+
+(eval-after-load 'ivy-mode
+  '(diminish 'ivy-mode))
+
+(eval-after-load 'js2-refactor-mode
+  '(diminish 'js2-refactor-mode))
+
+
+(eval-after-load 'tern-mode
+  '(diminish 'tern-mode))
+
+(eval-after-load 'global-eldoc-mode
+  '(diminish 'global-eldoc-mode))
+
+
+(eval-after-load 'auto-revert-mode
+  '(diminish 'auto-revert-mode))
+
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-safe-themes
+   (quote
+    ("10e3d04d524c42b71496e6c2e770c8e18b153fcfcc838947094dad8e5aa02cef" "230302a8dba6a7d46cc37709795427e229e67d5e6817db4f90e370c67766cdb6" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "31e64af34ba56d5a3e85e4bebefe2fb8d9d431d4244c6e6d95369a643786a40e" "4b207752aa69c0b182c6c3b8e810bbf3afa429ff06f274c8ca52f8df7623eb60" "60668f4b17b8b8780d50976c0788abed190353d21d3371b8f244dd44c103b0ea" "4a7abcca7cfa2ccdf4d7804f1162dd0353ce766b1277e8ee2ac7ee27bfbb408f" "d2c61aa11872e2977a07969f92630a49e30975220a079cd39bec361b773b4eb3" "759416a7a5f5cb6b8cb26e6db2cf70026aa2324083a888015ee2cad0320f7f19" default)))
+ '(elm-format-on-save t)
+ '(package-selected-packages
+   (quote
+    (diminish elm-mode dockerfile-mode docker-tramp flymd markdown-mode alchemist idle-highlight-mode zerodark-theme use-package tagedit spacemacs-theme spaceline smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor highlight-symbol expand-region exec-path-from-shell dumb-jump doom-themes cyberpunk-theme counsel company clojure-mode-extra-font-locking cider ag ace-window)))
+ '(powerline-default-separator (quote arrow))
+ '(powerline-gui-use-vcs-glyph t)
+ '(powerline-image-apple-rgb t)
+ '(powerline-text-scale-factor 1.1))
