@@ -126,7 +126,14 @@
 
     highlight-symbol
 
-    use-package))
+    use-package
+
+    guide-key
+
+    browse-kill-ring
+
+    move-dup
+    ))
 
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -195,6 +202,8 @@
 
 ;; code formatting
 (load "prettier-js.el")
+
+(load "enhancements.el")
 
 (global-set-key "\C-cy" '(lambda ()
                                  (interactive)
