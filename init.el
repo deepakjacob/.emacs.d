@@ -133,6 +133,9 @@
     browse-kill-ring
 
     move-dup
+
+    diminish
+    
     ))
 
 
