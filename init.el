@@ -1,4 +1,5 @@
-;: Define package repositories
+;; Deepak Jacob's emacs configuration
+                                        ;: Define package repositories
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
