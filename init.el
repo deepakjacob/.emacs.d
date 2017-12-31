@@ -1,5 +1,5 @@
 ;; Deepak Jacob's emacs configuration
-                                        ;: Define package repositories
+;: Define package repositories
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -144,7 +144,9 @@
 
     ;; vim style tet deletion within '',"", ``, [], {}, () etc
     change-inner
-    
+
+    ;; markdown mode
+    markdown-mode
     ))
 
 
@@ -217,6 +219,8 @@
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
 (load "shell-integration.el")
+
+(load "markdown.el")
 
 (global-set-key "\C-cy" '(lambda ()
                                  (interactive)
@@ -348,7 +352,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (dracula-theme change-inner zerodark-theme winum use-package ujelly-theme tagedit spacemacs-theme spaceline smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree move-dup json-mode js2-refactor jbeans-theme highlight-symbol guide-key expand-region exec-path-from-shell dumb-jump doom-themes dockerfile-mode dired-details+ dired+ diminish counsel browse-kill-ring alchemist)))
+    (markdown-mode dracula-theme change-inner zerodark-theme winum use-package ujelly-theme tagedit spacemacs-theme spaceline smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree move-dup json-mode js2-refactor jbeans-theme highlight-symbol guide-key expand-region exec-path-from-shell dumb-jump doom-themes dockerfile-mode dired-details+ dired+ diminish counsel browse-kill-ring alchemist)))
  '(powerline-gui-use-vcs-glyph t)
  '(vc-annotate-background "#0d0d0d")
  '(vc-annotate-color-map
