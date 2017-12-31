@@ -18,12 +18,6 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
-;; Interactive search key bindings. By default, C-s runs
-;; isearch-forward, so this swaps the bindings.
-;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-;;(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-;;(global-set-key (kbd "C-M-s") 'isearch-forward)
-;;(global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
@@ -45,28 +39,7 @@
 ;;tab width to 4
 (setq-default tab-width 2)
 
-;; comments
-(defun toggle-comment-on-line ()
-  "comment or uncomment current line"
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-(global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
-
-;; use 2 spaces for tabs
-(defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
-
-;; fix weird os x kill error
-(defun ns-get-pasteboard ()
-  "Returns the value of the pasteboard, or nil for unsupported formats."
-  (condition-case nil
-      (ns-get-selection-internal 'CLIPBOARD)
-    (quit nil)))
 
 ;;rainbow parens!
 (use-package rainbow-delimiters
@@ -83,20 +56,22 @@
 
 ;; comments
 (defun toggle-comment-on-line ()
+  ;; comment
   "comment or uncomment current line"
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
 
 ;; highlight-sysmbol configurations
-(global-set-key [(control f3)] 'highlight-symbol-at-point)
-(global-set-key [f3] 'highlight-symbol-next)
-(global-set-key [(shift f3)] 'highlight-symbol-prev)
-(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
-(global-set-key [(control shift f3)] 'unhighlight-regexp)
+(global-set-key [(control f6)] 'highlight-symbol-at-point)
+(global-set-key [f6] 'highlight-symbol-next)
+(global-set-key [(shift f6)] 'highlight-symbol-prev)
+(global-set-key [(meta f6)] 'highlight-symbol-query-replace)
+(global-set-key [(control shift f6)] 'unhighlight-regexp)
 (global-set-key [(control shift mouse-1)]
                 (lambda (event)
                   (interactive "e")
@@ -108,12 +83,6 @@
 (electric-indent-mode)
 (electric-pair-mode)
 
-
-(require 'highlight-symbol)
-(global-set-key [(control f6)] 'highlight-symbol)
-(global-set-key [f6] 'highlight-symbol-next)
-(global-set-key [(shift f6)] 'highlight-symbol-prev)
-(global-set-key [(meta f6)] 'highlight-symbol-query-replace)
-
-
-
+(require 'change-inner)
+(global-set-key (kbd "M-i") 'change-inner)
+(global-set-key (kbd "M-o") 'change-outer)
