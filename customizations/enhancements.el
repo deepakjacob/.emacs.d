@@ -11,7 +11,6 @@
   :config (setq browse-kill-ring-separator "\f")
 
   :bind (
-    ;; ("C-g" . 'browse-kill-ring-quit)
     ("M-n" . 'browse-kill-ring-forward)
     ("M-p" . 'browse-kill-ring-previous))
 )

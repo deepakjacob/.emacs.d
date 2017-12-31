@@ -39,8 +39,6 @@
 ;;tab width to 4
 (setq-default tab-width 2)
 
-
-
 ;;rainbow parens!
 (use-package rainbow-delimiters
   :ensure t
@@ -64,7 +62,6 @@
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
 (add-hook 'after-init-hook 'global-company-mode)
-
 
 ;; highlight-sysmbol configurations
 (global-set-key [(control f6)] 'highlight-symbol-at-point)

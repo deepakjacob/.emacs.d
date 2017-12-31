@@ -19,10 +19,6 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
 
-;; This enables ido in all contexts where it could be useful, not just
-;; for selecting buffer and file names
-;; (ido-ubiquitous-mode 1)
-
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
@@ -83,7 +79,4 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
-
-;; (global-set-key (kbd "M-q") 'minibuffer-keyboard-quit)
-
 
