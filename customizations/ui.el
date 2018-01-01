@@ -78,7 +78,7 @@
 
 (require 'neotree)
 (define-key global-map (kbd "C-c n") 'neotree-toggle)
-(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+;;(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
