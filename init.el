@@ -319,62 +319,59 @@
 
 (eval-after-load 'auto-revert-mode
   '(diminish 'auto-revert-mode))
- 
+
+(require 'spaceline-config)
+(spaceline-emacs-theme)
+(spaceline-info-mode)
+(setq powerline-arrow-shape 'arrow)   ;; the default
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(neo-banner-face ((t (:foreground "lightblue" :weight normal))))
- '(powerline-active1 ((t (:inherit mode-line :background "firebrick"))))
+ '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
+ '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil))))
+ '(powerline-active1 ((t (:inherit mode-line :background "DarkOrange3"))))
  '(powerline-active2 ((t (:inherit mode-line :background "gray17" :foreground "white"))))
- '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "chocolate3"))))
- '(powerline-inactive2 ((t (:inherit mode-line :background "gray17")))))
+ '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "gray17")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+   ["#1B2229" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#DFDFDF"])
  '(custom-safe-themes
    (quote
-    ("ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" "230302a8dba6a7d46cc37709795427e229e67d5e6817db4f90e370c67766cdb6" "42b8102c1234a9f680722953161c1127cc59ec68ad8d5c710af60d68c3b6e6ef" "73e35ffa5ca98b57a9923954f296c3854ce6d8736b31fdbdda3d27502d4b4d69" "d0404bd38534a00ee72a4f887a987d6bff87f4cf8d8f85149e32849b262465a5" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "77bddca0879cb3b0ecdf071d9635c818827c57d69164291cb27268ae324efa84" "0a3a41085c19d8121ed0ad3eb658a475ccb948a70a83604641ee7d4c3575a4d5" default)))
- '(fci-rule-color "#5c5e5e")
- '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#41728e"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#0d0d0d" "#b5bd68"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#0d0d0d" "#5a5b5a"))
- '(linum-format " %3i ")
- '(neo-window-position (quote right))
- '(neo-window-width 45)
+    ("42b8102c1234a9f680722953161c1127cc59ec68ad8d5c710af60d68c3b6e6ef" default)))
+ '(fci-rule-color "#5B6268")
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
  '(org-fontify-done-headline t)
  '(org-fontify-quote-and-verse-blocks t)
  '(org-fontify-whole-heading-line t)
- '(package-selected-packages
-   (quote
-    (markdown-mode dracula-theme change-inner zerodark-theme winum use-package ujelly-theme tagedit spacemacs-theme spaceline smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree move-dup json-mode js2-refactor jbeans-theme highlight-symbol guide-key expand-region exec-path-from-shell dumb-jump doom-themes dockerfile-mode dired-details+ dired+ diminish counsel browse-kill-ring alchemist)))
+ '(powerline-default-separator (quote slant))
  '(powerline-gui-use-vcs-glyph t)
- '(vc-annotate-background "#0d0d0d")
+ '(vc-annotate-background "#1B2229")
  '(vc-annotate-color-map
    (list
-    (cons 20 "#b5bd68")
-    (cons 40 "#c8c06c")
-    (cons 60 "#dcc370")
-    (cons 80 "#f0c674")
-    (cons 100 "#eab56d")
-    (cons 120 "#e3a366")
-    (cons 140 "#de935f")
-    (cons 160 "#d79e84")
-    (cons 180 "#d0a9a9")
-    (cons 200 "#c9b4cf")
-    (cons 220 "#ca9aac")
-    (cons 240 "#cb8089")
-    (cons 260 "#cc6666")
-    (cons 280 "#af6363")
-    (cons 300 "#936060")
-    (cons 320 "#765d5d")
-    (cons 340 "#5c5e5e")
-    (cons 360 "#5c5e5e")))
+    (cons 20 "#98be65")
+    (cons 40 "#b4be6c")
+    (cons 60 "#d0be73")
+    (cons 80 "#ECBE7B")
+    (cons 100 "#e6ab6a")
+    (cons 120 "#e09859")
+    (cons 140 "#da8548")
+    (cons 160 "#d38079")
+    (cons 180 "#cc7cab")
+    (cons 200 "#c678dd")
+    (cons 220 "#d974b7")
+    (cons 240 "#ec7091")
+    (cons 260 "#ff6c6b")
+    (cons 280 "#cf6162")
+    (cons 300 "#9f585a")
+    (cons 320 "#6f4e52")
+    (cons 340 "#5B6268")
+    (cons 360 "#5B6268")))
  '(vc-annotate-very-old-color nil))
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)

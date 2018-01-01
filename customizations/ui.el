@@ -33,7 +33,7 @@
 (global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Fira Code") ;;default font
+(set-face-attribute 'default nil :font "Fira Mono for Powerline") ;;default font
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 130)
 (set-face-attribute 'fringe nil :background nil)
