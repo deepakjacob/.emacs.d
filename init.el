@@ -27,14 +27,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Define he following variables to remove the compile-log warnings
-;; when defining ido-ubiquitous
-;; (defvar ido-cur-item nil)
-;; (defvar ido-default-item nil)
-;; (defvar ido-cur-list nil)
-;; (defvar predicate nil)
-;; (defvar inherit-input-method nil)
-
 ;; The packages you want installed. You can also install these
 ;; manually with M-x package-install
 ;; Add in your own as you wish:
@@ -97,8 +89,10 @@
     spacemacs-theme
 
     ;; ace-window
-    ace-window
+    ;; use C-x-o to navigate windows within a frame
+    windmove
 
+    
     ;; expand-region
     expand-region
 
@@ -118,7 +112,43 @@
 
     js2-refactor
 
-    use-package))
+    use-package
+
+    doom-themes
+
+    ;; highlight symbols
+    highlight-symbol
+
+    ;; easy loading of packages
+    use-package
+
+    ;; display keyboard shortcuts
+    guide-key
+
+    ;; see kill ring contents
+    browse-kill-ring
+
+    ;; duplicate region above / below 
+    move-dup
+
+    ;; remove clutter while displaying minor modes
+    diminish
+
+    ;; window switching
+    winum
+
+    jbeans-theme
+
+    ;; for elixir / phoenix / mix
+    alchemist
+
+    ;; vim style tet deletion within '',"", ``, [], {}, () etc
+    change-inner
+
+    ;; markdown mode
+    markdown-mode
+
+    ))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -148,7 +178,6 @@
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
-
 
 ;;;;
 ;; Customization
@@ -180,6 +209,80 @@
 (load "elisp-editing.el")
 
 ;; Langauage-specific
-(load "setup-clojure.el")
+;;(load "setup-clojure.el")
 
 (load "setup-js.el")
+
+;; code formatting
+(load "prettier-js.el")
+
+(load "enhancements.el")
+
+(global-set-key "\C-cy" '(lambda () (interactive) (popup-menu 'yank-menu)))
+
+
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+            (next-win-buffer (window-buffer (next-window)))
+            (this-win-edges (window-edges (selected-window)))
+            (next-win-edges (window-edges (next-window)))
+            (this-win-2nd (not (and (<= (car this-win-edges)
+                                        (car next-win-edges))
+                                    (<= (cadr this-win-edges)
+                                        (cadr next-win-edges)))))
+            (splitter
+             (if (= (car this-win-edges)
+                    (car (window-edges (next-window))))
+                 'split-window-horizontally
+               'split-window-vertically)))
+       (delete-other-windows)
+       (let ((first-win (selected-window)))
+         (funcall splitter)
+         (if this-win-2nd (other-window 1))
+         (set-window-buffer (selected-window) this-win-buffer)
+         (set-window-buffer (next-window) next-win-buffer)
+         (select-window first-win)
+         (if this-win-2nd (other-window 1))))))
+
+(define-key ctl-x-4-map "t" 'toggle-window-split)
+
+(define-globalized-minor-mode
+    global-text-scale-mode
+    text-scale-mode
+    (lambda () (text-scale-mode 1)))
+
+  (defun global-text-scale-adjust (inc) (interactive)
+    (text-scale-set 1)
+    (kill-local-variable 'text-scale-mode-amount)
+    (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
+    (global-text-scale-mode 1))
+  (global-set-key (kbd "M-0")
+                  '(lambda () (interactive)
+                     (global-text-scale-adjust (- text-scale-mode-amount))
+                     (global-text-scale-mode -1)))
+  (global-set-key (kbd "M-+")
+                  '(lambda () (interactive) (global-text-scale-adjust 1)))
+  (global-set-key (kbd "M-_")
+                  '(lambda () (interactive) (global-text-scale-adjust -1)))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(doom-neotree-folder-size 1.0)
+ '(neo-theme (quote ascii))
+ '(neo-window-fixed-size nil)
+ '(neo-window-position (quote right))
+ '(neo-window-width 45)
+ '(package-selected-packages
+   (quote
+    (markdown-mode change-inner alchemist jbeans-theme winum diminish move-dup browse-kill-ring guide-key highlight-symbol doom-themes zerodark-theme use-package tagedit spacemacs-theme smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor expand-region exec-path-from-shell dumb-jump counsel company clojure-mode-extra-font-locking cider ace-window))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

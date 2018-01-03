@@ -17,8 +17,6 @@
 (add-to-list 'default-frame-alist '(height . 90))
 (add-to-list 'default-frame-alist '(width . 100))
 
-
-
 ;; Color Themes
 ;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
 ;; for a great explanation of emacs color themes.
@@ -38,17 +36,12 @@
 (set-face-attribute 'default nil :height 170)
 (set-face-attribute 'fringe nil :background nil)
 
-;; Uncomment the lines below by removing semicolons and play with the
-;; values in order to set the width (in characters wide) and height
-;; (in lines high) Emacs will have whenever you start it
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 177) (height . 53)))
-
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
 
       ;; I'm actually not sure what this does but it's recommended?
-      x-select-enable-primary t
+      ;; x-select-enable-primary t
 
       ;; Save clipboard strings into kill ring before replacing them.
       ;; When one selects something in another program to paste it into Emacs,
@@ -61,7 +54,8 @@
       apropos-do-all t
 
       ;; Mouse yank commands yank at point instead of at click.
-      mouse-yank-at-point t)
+      ;; mouse-yank-at-point t
+      )
 
 
 (global-prettify-symbols-mode +1)
@@ -82,7 +76,7 @@
 ;; load the all-the-icons prior to loading neotree
 (require 'all-the-icons)
 (require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+(define-key global-map (kbd "C-c n") 'neotree-toggle)
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
