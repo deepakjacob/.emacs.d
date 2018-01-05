@@ -3,6 +3,14 @@
 "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r"
 "M-s" "C-h" "C-c C-a" "C-c a"))
 
+(setq guide-key/recursive-key-sequence-flag t)
+(setq guide-key/popup-window-position 'bottom)
+
+(setq guide-key/highlight-command-regexp
+      '("rectangle"
+        ("register" . font-lock-type-face)
+        ("bookmark" . "hot pink")))
+
  (add-hook 'after-init-hook 'guide-key-mode)
 
 

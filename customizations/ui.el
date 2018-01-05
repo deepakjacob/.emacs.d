@@ -24,8 +24,8 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'spacemacs-dark t)
-(zerodark-setup-modeline-format)
+(load-theme 'JD t)
+;;(zerodark-setup-modeline-format)
 
 ;; Show line numbers
 (global-linum-mode)
@@ -33,7 +33,7 @@
 ;; Chnage the font to Operator Mono
 (set-face-attribute 'default nil :font "Operator Mono") ;;default font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 170)
+(set-face-attribute 'default nil :height 140)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
