@@ -58,6 +58,7 @@
 (setq projectile-mode-line '(:eval (format " Projectile[%s]" (projectile-project-name))))
 ;; use ivy as the completion backend for projectile
 (setq projectile-completion-system 'ivy)
+
 ;; ignore node_modules folder
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
 (add-to-list 'projectile-globally-ignored-directories "functions/node_modules")
@@ -79,4 +80,5 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
 

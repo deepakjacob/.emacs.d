@@ -18,7 +18,6 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
-
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
 
@@ -54,21 +53,19 @@
 
 ;; comments
 (defun toggle-comment-on-line ()
-  ;; comment
   "comment or uncomment current line"
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; highlight-sysmbol configurations
-(global-set-key [(control f6)] 'highlight-symbol-at-point)
-(global-set-key [f6] 'highlight-symbol-next)
-(global-set-key [(shift f6)] 'highlight-symbol-prev)
-(global-set-key [(meta f6)] 'highlight-symbol-query-replace)
-(global-set-key [(control shift f6)] 'unhighlight-regexp)
+(global-set-key [(control f3)] 'highlight-symbol-at-point)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+(global-set-key [(control shift f3)] 'unhighlight-regexp)
 (global-set-key [(control shift mouse-1)]
                 (lambda (event)
                   (interactive "e")
@@ -76,10 +73,11 @@
                     (goto-char (posn-point (event-start event)))
                     (highlight-symbol-at-point))))
 
-
 (electric-indent-mode)
 (electric-pair-mode)
 
 (require 'change-inner)
 (global-set-key (kbd "M-i") 'change-inner)
 (global-set-key (kbd "M-o") 'change-outer)
+
+
