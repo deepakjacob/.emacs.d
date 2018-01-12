@@ -27,6 +27,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+
 ;; The packages you want installed. You can also install these
 ;; manually with M-x package-install
 ;; Add in your own as you wish:
@@ -162,6 +163,10 @@
     go-autocomplete
 
     go-guru
+
+    focus
+
+    zoom
 
     ))
 
@@ -318,7 +323,7 @@
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(custom-safe-themes
    (quote
-    ("e3f648bb477a2e2332124f5ca8bd070e8624f152be6b4478668a69e5de7510ff" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "0a3a41085c19d8121ed0ad3eb658a475ccb948a70a83604641ee7d4c3575a4d5" "a7e7804313dbf827a441c86a8109ef5b64b03011383322cbdbf646eb02692f76" "42b8102c1234a9f680722953161c1127cc59ec68ad8d5c710af60d68c3b6e6ef" default)))
+    ("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "938d8c186c4cb9ec4a8d8bc159285e0d0f07bad46edf20aa469a89d0d2a586ea" "ed317c0a3387be628a48c4bbdb316b4fa645a414838149069210b66dd521733f" "abb02bde14039eb67fceb83372dc29239601e924b97ab005107b7bd60d0a2438" "7e376fb329a0e46a04e8285b0e45199a083f98c69b0e1039ec1cb1d366e66e9c" "0b8f899050b661958745d1a745866f60589d769bc54f21a4c9c9da8958f93036" "23010b5ae394aed7576297cef8b6f843177e70f7c5cd448b7ac8d83bb5f6baf2" "d6922c974e8a78378eacb01414183ce32bc8dbf2de78aabcc6ad8172547cb074" "53a9ec5700cf2bb2f7059a584c12a5fdc89f7811530294f9eaf92db526a9fb5f" "579e9950513524d8739e08eae289419cfcb64ed9b7cc910dd2e66151c77975c4" "3481e594ae6866d72c40ad77d86a1ffa338d01daa9eb0977e324f365cef4f47c" "77bddca0879cb3b0ecdf071d9635c818827c57d69164291cb27268ae324efa84" "e3f648bb477a2e2332124f5ca8bd070e8624f152be6b4478668a69e5de7510ff" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "0a3a41085c19d8121ed0ad3eb658a475ccb948a70a83604641ee7d4c3575a4d5" "a7e7804313dbf827a441c86a8109ef5b64b03011383322cbdbf646eb02692f76" "42b8102c1234a9f680722953161c1127cc59ec68ad8d5c710af60d68c3b6e6ef" default)))
  '(doom-neotree-folder-size 1.0)
  '(fci-rule-color "#555556")
  '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#fd971f"))
@@ -334,7 +339,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (flymake-go go-autocomplete go-mode indent-guide telephone-line markdown-mode change-inner alchemist jbeans-theme winum diminish move-dup browse-kill-ring guide-key highlight-symbol doom-themes zerodark-theme use-package tagedit spacemacs-theme smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor expand-region exec-path-from-shell dumb-jump counsel company clojure-mode-extra-font-locking cider ace-window)))
+    (material-theme ample-theme focus imenu-anywhere soft-morning-theme zoom cyberpunk-theme highlight-function-calls ujelly-theme jujube-theme flymake-go go-autocomplete go-mode indent-guide telephone-line markdown-mode change-inner alchemist jbeans-theme winum diminish move-dup browse-kill-ring guide-key highlight-symbol doom-themes zerodark-theme use-package tagedit spacemacs-theme smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor expand-region exec-path-from-shell dumb-jump counsel company clojure-mode-extra-font-locking cider ace-window)))
  '(telephone-line-separator-extra-padding 2)
  '(vc-annotate-background "#000000")
  '(vc-annotate-color-map
@@ -357,7 +362,9 @@
     (cons 320 "#77504e")
     (cons 340 "#555556")
     (cons 360 "#555556")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(zoom-mode t nil (zoom))
+ '(zoom-size (quote (0.618 . 0.618))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

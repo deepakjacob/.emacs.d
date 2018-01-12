@@ -100,4 +100,5 @@
   (global-page-break-lines-mode t)
 )
 
+(custom-set-variables '(zoom-mode t))
 
