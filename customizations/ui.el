@@ -24,16 +24,16 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'base16-atelier-estuary t)
+(load-theme 'base16-chalk t)
 ;;(zerodark-setup-modeline-format)
 
 ;; Show line numbers
 (global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Fira Code") ;; font
+(set-face-attribute 'default nil :font "Monoisome") ;; font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 120)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -48,6 +48,7 @@
       ;; but kills something in Emacs before actually pasting it,
       ;; this selection is gone unless this variable is non-nil
       save-interprogram-paste-before-kill t
+
 
       ;; Shows all options when running apropos. For more info,
       ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
@@ -81,6 +82,8 @@
 (require 'all-the-icons)
 (require 'neotree)
 (define-key global-map (kbd "C-c n") 'neotree-toggle)
+(define-key global-map (kbd "C-c i") 'neotree-dir)
+
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)

@@ -342,7 +342,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (highlight-indent-guides badger-theme light-soap-theme js2-highlight-vars php-mode racer rust-mode base16-theme subatomic-theme tao-theme material-theme ample-theme focus imenu-anywhere soft-morning-theme zoom cyberpunk-theme highlight-function-calls ujelly-theme jujube-theme flymake-go go-autocomplete go-mode indent-guide telephone-line markdown-mode change-inner alchemist jbeans-theme winum diminish move-dup browse-kill-ring guide-key highlight-symbol doom-themes zerodark-theme use-package tagedit spacemacs-theme smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor expand-region exec-path-from-shell dumb-jump counsel company clojure-mode-extra-font-locking cider ace-window)))
+    (dracula-theme highlight-indent-guides badger-theme light-soap-theme js2-highlight-vars php-mode racer rust-mode base16-theme subatomic-theme tao-theme material-theme ample-theme focus imenu-anywhere soft-morning-theme zoom cyberpunk-theme highlight-function-calls ujelly-theme jujube-theme flymake-go go-autocomplete go-mode indent-guide telephone-line markdown-mode change-inner alchemist jbeans-theme winum diminish move-dup browse-kill-ring guide-key highlight-symbol doom-themes zerodark-theme use-package tagedit spacemacs-theme smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor expand-region exec-path-from-shell dumb-jump counsel company clojure-mode-extra-font-locking cider ace-window)))
  '(subatomic-high-contrast t)
  '(telephone-line-separator-extra-padding 2)
  '(vc-annotate-background "#000000")
