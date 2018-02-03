@@ -9,7 +9,7 @@
 ;; Turn of the tool bar at the top of the each frame because it's distracting
 (tool-bar-mode -1)
 
-(setq-default cursor-type 'bar) ;;make cursor a line
+(setq-default cursor-type 'bar) ;;makes cursor a line
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
 
@@ -24,16 +24,16 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'jbeans t)
+(load-theme 'base16-atelier-estuary t)
 ;;(zerodark-setup-modeline-format)
 
 ;; Show line numbers
 (global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Operator Mono") ;;default font
+(set-face-attribute 'default nil :font "Fira Code") ;; font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 130)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -56,6 +56,10 @@
       ;; Mouse yank commands yank at point instead of at click.
       ;; mouse-yank-at-point t
       )
+
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-auto-character-face-perc 10)
 
 
 (global-prettify-symbols-mode +1)
@@ -100,5 +104,6 @@
   (global-page-break-lines-mode t)
 )
 
-(custom-set-variables '(zoom-mode t))
+;; (custom-set-variables '(zoom-mode t))
+
 

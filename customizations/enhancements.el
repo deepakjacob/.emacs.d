@@ -3,7 +3,9 @@
 "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r"
 "M-s" "C-h" "C-c C-a" "C-c a"))
 
- (add-hook 'after-init-hook 'guide-key-mode)
+(setq guide-key/recursive-key-sequence-flag t)
+(setq guide-key/popup-window-position 'bottom)
+(add-hook 'after-init-hook 'guide-key-mode)
 
 
 (use-package browse-kill-ring
@@ -55,3 +57,10 @@
    (indent-region (point-min) (point-max))))
 
 (global-set-key (kbd "C-c x") 'jd/reformat-xml)
+
+(setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
+(setq racer-rust-src-path "/Users/jacobdeepak/Development/rust/rust/src") ;; Rust source code PATH
+
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
