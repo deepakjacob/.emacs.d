@@ -316,64 +316,7 @@
 
 (telephone-line-mode 1)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
- '(ansi-term-color-vector
-   [unspecified "#32302f" "#fb4934" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#83a598" "#d5c4a1"] t)
- '(custom-safe-themes
-   (quote
-    ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "53a9ec5700cf2bb2f7059a584c12a5fdc89f7811530294f9eaf92db526a9fb5f" "579e9950513524d8739e08eae289419cfcb64ed9b7cc910dd2e66151c77975c4" "2af26301bded15f5f9111d3a161b6bfb3f4b93ec34ffa95e42815396da9cb560" "0e6e456b15dbeb6e7bcad4131f029e027cceecc3cf1598fc49141343860bfce6" "986e7e8e428decd5df9e8548a3f3b42afc8176ce6171e69658ae083f3c06211c" "78c1c89192e172436dbf892bd90562bc89e2cc3811b5f9506226e735a953a9c6" "f5f3a6fb685fe5e1587bafd07db3bf25a0655f3ddc579ed9d331b6b19827ea46" "e1498b2416922aa561076edc5c9b0ad7b34d8ff849f335c13364c8f4276904f0" "6271fc9740379f8e2722f1510d481c1df1fcc43e48fa6641a5c19e954c21cc8f" "36282815a2eaab9ba67d7653cf23b1a4e230e4907c7f110eebf3cdf1445d8370" "3e34e9bf818cf6301fcabae2005bba8e61b1caba97d95509c8da78cff5f2ec8e" default)))
- '(doom-neotree-folder-size 1.0)
- '(fci-always-use-textual-rule nil)
- '(fci-rule-color "dark red")
- '(fci-rule-use-dashes t)
- '(fci-rule-width 1)
- '(highlight-indent-guides-character 124)
- '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#fd971f"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#b6e63e"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#525254"))
- '(linum-format " %3i ")
- '(neo-theme (quote ascii))
- '(neo-window-fixed-size nil)
- '(neo-window-position (quote right))
- '(neo-window-width 35)
- '(org-fontify-done-headline t)
- '(org-fontify-quote-and-verse-blocks t)
- '(org-fontify-whole-heading-line t)
- '(package-selected-packages
-   (quote
-    (fill-column-indicator window-margin dracula-theme highlight-indent-guides badger-theme light-soap-theme js2-highlight-vars php-mode racer rust-mode base16-theme subatomic-theme tao-theme material-theme ample-theme focus imenu-anywhere soft-morning-theme zoom cyberpunk-theme highlight-function-calls ujelly-theme jujube-theme flymake-go go-autocomplete go-mode indent-guide telephone-line markdown-mode change-inner alchemist jbeans-theme winum diminish move-dup browse-kill-ring guide-key highlight-symbol doom-themes zerodark-theme use-package tagedit spacemacs-theme smooth-scrolling smex rjsx-mode rainbow-delimiters projectile paredit page-break-lines neotree json-mode js2-refactor expand-region exec-path-from-shell dumb-jump counsel company clojure-mode-extra-font-locking cider ace-window)))
- '(subatomic-high-contrast t)
- '(telephone-line-separator-extra-padding 2)
- '(vc-annotate-background "#000000")
- '(vc-annotate-color-map
-   (list
-    (cons 20 "#b6e63e")
-    (cons 40 "#c4db4e")
-    (cons 60 "#d3d15f")
-    (cons 80 "#e2c770")
-    (cons 100 "#ebb755")
-    (cons 120 "#f3a73a")
-    (cons 140 "#fd971f")
-    (cons 160 "#fc723b")
-    (cons 180 "#fb4d57")
-    (cons 200 "#fb2874")
-    (cons 220 "#f43461")
-    (cons 240 "#ed404e")
-    (cons 260 "#e74c3c")
-    (cons 280 "#c14d41")
-    (cons 300 "#9c4f48")
-    (cons 320 "#77504e")
-    (cons 340 "#555556")
-    (cons 360 "#555556")))
- '(vc-annotate-very-old-color nil)
- '(zoom-mode t nil (zoom))
- '(zoom-size (quote (0.618 . 0.618))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -110,6 +110,25 @@
 (require 'fill-column-indicator)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
+
+
+(custom-set-variables
+ '(doom-neotree-folder-size 1.0)
+ '(fci-always-use-textual-rule nil)
+ '(fci-rule-color "light green")
+ '(fci-rule-use-dashes nil)
+ '(fci-rule-width 1)
+ '(highlight-indent-guides-character 124)
+ '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#fd971f"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#b6e63e"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#525254"))
+ '(linum-format " %3i ")
+ '(neo-theme (quote ascii))
+ '(neo-window-fixed-size nil)
+ '(neo-window-position (quote right))
+ '(neo-window-width 35)
+ )
+
 ;; (custom-set-variables '(zoom-mode t))
 
 
