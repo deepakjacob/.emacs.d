@@ -31,9 +31,9 @@
 (global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Monoisome") ;; font
+(set-face-attribute 'default nil :font "NanumGothicCoding") ;; font
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 160)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -107,6 +107,9 @@
   (global-page-break-lines-mode t)
 )
 
+(require 'fill-column-indicator)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
 ;; (custom-set-variables '(zoom-mode t))
 
 
