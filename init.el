@@ -153,7 +153,6 @@
     markdown-mode
 
     ;; telephone-line
-    telephone-line
 
     ;; smartparens
     smartparens
@@ -171,6 +170,12 @@
     fill-column-indicator
 
     easy-kill
+
+    eglot
+
+    doom-modeline
+
+    highlight-indent-guides
 
     ))
 
