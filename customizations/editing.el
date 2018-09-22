@@ -81,3 +81,10 @@
 (global-set-key (kbd "M-o") 'change-outer)
 
 
+
+;; (global-set-key [remap mark-word] 'mark-whole-word)
+
+
+(global-set-key [remap kill-ring-save] 'easy-kill)
+(global-set-key [remap mark-sexp] 'easy-mark)
+(global-set-key [remap mark-word] 'easy-mark)
