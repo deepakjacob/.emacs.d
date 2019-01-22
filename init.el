@@ -11,6 +11,9 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+(add-to-list 'package-archives
+             '("melpa stable" . "http://melpa.milkbox.net/packages/") t)
+
 ;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
 ;;                          ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
@@ -83,12 +86,6 @@
     ;; for json
     json-mode
 
-    ;; zerodark theme
-    zerodark-theme
-
-    ;; spacemacs
-    spacemacs-theme
-
     ;; ace-window
     ;; use C-x-o to navigate windows within a frame
     windmove
@@ -113,8 +110,6 @@
 
     js2-refactor
 
-    use-package
-
     doom-themes
 
     ;; highlight symbols
@@ -137,8 +132,6 @@
 
     ;; window switching
     winum
-
-    jbeans-theme
 
     ;;elixir
     elixir-mode
@@ -177,6 +170,10 @@
 
     highlight-indent-guides
 
+    flycheck
+
+    ace-jump-mode
+
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -193,7 +190,6 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
 
 ;; Place downloaded elisp files in ~/.emacs.d/vendor. You'll then be able
 ;; to load them.
@@ -224,6 +220,12 @@
 ;; switch buffers, and choose options from the minibuffer.
 (load "navigation.el")
 
+
+
+(setq dart-sdk-path "/Users/jacobdeepak/Development/flutter/bin/cache/dart-sdk/")
+(setq dart-enable-analysis-server t)
+(setq dart-format-on-save t)
+
 ;; These customizations change the way emacs looks and disable/enable
 ;; some user interface elements
 (load "ui.el")
@@ -247,7 +249,19 @@
 
 (load "enhancements.el")
 
+(setq ns-command-modifier 'meta)
+(setq mac-option-modifier 'meta)
+
+
 (global-set-key "\C-cy" '(lambda () (interactive) (popup-menu 'yank-menu)))
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
 
 
 (defun toggle-window-split ()
@@ -318,34 +332,7 @@
         (select-window (active-minibuffer-window))))
 (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("891debfe489c769383717cc7d0020244a8d62ce6f076b2c42dd1465b7c94204d" "4597d1e9bbf1db2c11d7cf9a70204fa42ffc603a2ba5d80c504ca07b3e903770" "bbb4a4d39ed6551f887b7a3b4b84d41a3377535ccccf901a3c08c7317fad7008" "abb02bde14039eb67fceb83372dc29239601e924b97ab005107b7bd60d0a2438" "a866134130e4393c0cad0b4f1a5b0dd580584d9cf921617eee3fd54b6f09ac37" "c5d320f0b5b354b2be511882fc90def1d32ac5d38cccc8c68eab60a62d1621f2" "ffe80c88e3129b2cddadaaf78263a7f896d833a77c96349052ad5b7753c0c5a5" "fee4e306d9070a55dce4d8e9d92d28bd9efe92625d2ba9d4d654fc9cd8113b7f" "a62f0662e6aa7b05d0b4493a8e245ab31492765561b08192df61c9d1c7e1ddee" "4e21fb654406f11ab2a628c47c1cbe53bab645d32f2c807ee2295436f09103c6" "8ff5073d6c694a442c85505d6f885a752061b3738e2de7c2b9042ffd2c1579e5" "5a39d2a29906ab273f7900a2ae843e9aa29ed5d205873e1199af4c9ec921aaab" "25c242b3c808f38b0389879b9cba325fb1fa81a0a5e61ac7cae8da9a32e2811b" "b8929cff63ffc759e436b0f0575d15a8ad7658932f4b2c99415f3dde09b32e97" "6145e62774a589c074a31a05dfa5efdf8789cf869104e905956f0cbd7eda9d0e" "dd4628d6c2d1f84ad7908c859797b24cc6239dfe7d71b3363ccdd2b88963f336" "5b8eccff13d79fc9b26c544ee20e1b0c499587d6c4bfc38cabe34beaf2c2fc77" "304c39b190267e9b863c0cf9c989da76dcfbb0649cbcb89592e7c5c08348fce9" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "9c4acf7b5801f25501f0db26ac3eee3dc263ed51afd01f9dcfda706a15234733" default)))
- '(doom-neotree-folder-size 1.0)
- '(fci-always-use-textual-rule nil)
- '(fci-rule-color "light green")
- '(fci-rule-use-dashes nil)
- '(fci-rule-width 1)
- '(highlight-indent-guides-character 124)
- '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#fd971f"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#b6e63e"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#525254"))
- '(linum-format " %3i ")
- '(neo-theme (quote ascii))
- '(neo-window-fixed-size nil)
- '(neo-window-position (quote right))
- '(neo-window-width 35)
- '(package-selected-packages
-   (quote
-    (nodejs-repl indium eglot easy-kill-extras easy-kill doom-modeline zoom zerodark-theme yaml-mode winum use-package tagedit spacemacs-theme smooth-scrolling smex smartparens rjsx-mode rainbow-delimiters projectile php-mode paredit page-break-lines neotree move-dup markdown-mode json-mode js2-refactor jbeans-theme highlight-symbol highlight-indent-guides guide-key go-guru go-autocomplete focus fill-column-indicator exec-path-from-shell ergoemacs-status ergoemacs-mode dumb-jump doom-themes diminish counsel clojure-mode-extra-font-locking cider change-inner browse-kill-ring base16-theme alchemist))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
+

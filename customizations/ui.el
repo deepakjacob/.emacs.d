@@ -28,12 +28,15 @@
 ;;(zerodark-setup-modeline-format)
 
 ;; Show line numbers
-(global-linum-mode)
+;;(global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :font "Fira Mono for Powerline") ;; font
+(set-face-attribute 'default nil :family "Andale Mono") ;; font
+;; font for all unicode characters
+(set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
+
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 160)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -58,9 +61,9 @@
       ;; mouse-yank-at-point t
       )
 
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-auto-character-face-perc 10)
+;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;;(setq highlight-indent-guides-method 'character)
+;;(setq highlight-indent-guides-auto-character-face-perc 10)
 
 
 (global-prettify-symbols-mode +1)
@@ -107,9 +110,9 @@
   (global-page-break-lines-mode t)
 )
 
-(require 'fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+;;(require 'fill-column-indicator)
+;;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+;;(global-fci-mode 1)
 
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -122,24 +125,10 @@
 ;;                   (abbreviate-file-name (buffer-file-name))
 ;;                 "%b"))))
 
-(custom-set-variables
- '(doom-neotree-folder-size 1.0)
- '(fci-always-use-textual-rule nil)
- '(fci-rule-color "light green")
- '(fci-rule-use-dashes nil)
- '(fci-rule-width 1)
- '(highlight-indent-guides-character 124)
- '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#fd971f"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#b6e63e"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#525254"))
- '(linum-format " %3i ")
- '(neo-theme (quote ascii))
- '(neo-window-fixed-size nil)
- '(neo-window-position (quote right))
- '(neo-window-width 65)
- )
-
 
 ;; (custom-set-variables '(zoom-mode t))
 
 
+(defadvice ansi-term (after advise-ansi-term-coding-system)
+    (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
+(ad-activate 'ansi-term)
