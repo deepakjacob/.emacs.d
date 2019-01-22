@@ -15,7 +15,7 @@
 
 ;;default starting emacs size
 (add-to-list 'default-frame-alist '(height . 90))
-(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(width . 180))
 
 ;; Color Themes
 ;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
@@ -36,7 +36,7 @@
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 150)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -132,3 +132,6 @@
 (defadvice ansi-term (after advise-ansi-term-coding-system)
     (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
+
+(require 'doom-modeline)
+(doom-modeline-init)

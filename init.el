@@ -134,10 +134,10 @@
     winum
 
     ;;elixir
-    elixir-mode
+    ;; elixir-mode
 
     ;; for elixir / phoenix / mix
-    alchemist
+    ;; alchemist
 
     ;; vim style tet deletion within '',"", ``, [], {}, () etc
     change-inner
@@ -150,11 +150,11 @@
     ;; smartparens
     smartparens
 
-    go-mode
+    ;; go-mode
 
-    go-autocomplete
+    ;; go-autocomplete
 
-    go-guru
+    ;; go-guru
 
     focus
 
@@ -220,12 +220,6 @@
 ;; switch buffers, and choose options from the minibuffer.
 (load "navigation.el")
 
-
-
-(setq dart-sdk-path "/Users/jacobdeepak/Development/flutter/bin/cache/dart-sdk/")
-(setq dart-enable-analysis-server t)
-(setq dart-format-on-save t)
-
 ;; These customizations change the way emacs looks and disable/enable
 ;; some user interface elements
 (load "ui.el")
@@ -239,100 +233,20 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
-;; Langauage-specific
-;;(load "setup-clojure.el")
+(load "enhancements.el")
+
+(load "window.el")
 
 (load "setup-js.el")
 
 ;; code formatting
 (load "prettier-js.el")
 
-(load "enhancements.el")
+;; (load "setup-go.el")
 
-(setq ns-command-modifier 'meta)
-(setq mac-option-modifier 'meta)
+;; (load "setup-dart.el")
 
+;; (load "setup-elixir.el")
 
-(global-set-key "\C-cy" '(lambda () (interactive) (popup-menu 'yank-menu)))
-
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
-(eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
-
-
-(defun toggle-window-split ()
-  (interactive)
-  (if (= (count-windows) 2)
-      (let* ((this-win-buffer (window-buffer))
-            (next-win-buffer (window-buffer (next-window)))
-            (this-win-edges (window-edges (selected-window)))
-            (next-win-edges (window-edges (next-window)))
-            (this-win-2nd (not (and (<= (car this-win-edges)
-                                        (car next-win-edges))
-                                    (<= (cadr this-win-edges)
-                                        (cadr next-win-edges)))))
-            (splitter
-             (if (= (car this-win-edges)
-                    (car (window-edges (next-window))))
-                 'split-window-horizontally
-               'split-window-vertically)))
-       (delete-other-windows)
-       (let ((first-win (selected-window)))
-         (funcall splitter)
-         (if this-win-2nd (other-window 1))
-         (set-window-buffer (selected-window) this-win-buffer)
-         (set-window-buffer (next-window) next-win-buffer)
-         (select-window first-win)
-         (if this-win-2nd (other-window 1))))))
-
-(define-key ctl-x-4-map "t" 'toggle-window-split)
-
-(define-globalized-minor-mode
-    global-text-scale-mode
-    text-scale-mode
-    (lambda () (text-scale-mode 1)))
-
-  (defun global-text-scale-adjust (inc) (interactive)
-    (text-scale-set 1)
-    (kill-local-variable 'text-scale-mode-amount)
-    (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
-    (global-text-scale-mode 1))
-  (global-set-key (kbd "M-0")
-                  '(lambda () (interactive)
-                     (global-text-scale-adjust (- text-scale-mode-amount))
-                     (global-text-scale-mode -1)))
-  (global-set-key (kbd "M-+")
-                  '(lambda () (interactive) (global-text-scale-adjust 1)))
-  (global-set-key (kbd "M-_")
-                  '(lambda () (interactive) (global-text-scale-adjust -1)))
-
-(require 'elixir-mode)
-(require 'smartparens-config)
-(add-hook 'elixir-mode-hook #'smartparens-mode)
-(sp-with-modes '(elixir-mode)
-  (sp-local-pair "fn" "end"
-         :when '(("SPC" "RET"))
-         :actions '(insert navigate))
-  (sp-local-pair "do" "end"
-         :when '(("SPC" "RET"))
-         :post-handlers '(sp-ruby-def-post-handler)
-         :actions '(insert navigate)))
-
-(require 'doom-modeline)
-(doom-modeline-init)
-
-(defun switch-to-minibuffer-window ()
-    "switch to minibuffer window (if active)"
-    (interactive)
-    (when (active-minibuffer-window)
-        (select-window (active-minibuffer-window))))
-(global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
-
+;; Langauage-specific
+;;(load "setup-clojure.el")
