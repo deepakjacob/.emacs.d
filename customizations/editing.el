@@ -92,6 +92,11 @@
 (setq mac-option-modifier 'meta)
 
 
+(define-globalized-minor-mode
+    global-text-scale-mode
+    text-scale-mode
+    (lambda () (text-scale-mode 1)))
+
   (defun global-text-scale-adjust (inc) (interactive)
     (text-scale-set 1)
     (kill-local-variable 'text-scale-mode-amount)
@@ -174,4 +179,3 @@
 ;; (add-hook 'rust-mode-hook #'racer-mode)
 ;; (add-hook 'racer-mode-hook #'eldoc-mode)
 ;; (add-hook 'racer-mode-hook #'company-mode)
-
