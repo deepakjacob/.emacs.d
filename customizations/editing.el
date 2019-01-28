@@ -170,6 +170,8 @@
    (indent-region (point-min) (point-max))))
 
 (global-set-key (kbd "C-c x") 'jd/reformat-xml)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 
 
 ;; Rust config
