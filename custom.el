@@ -9,7 +9,7 @@
  '(ansi-color-names-vector
    ["#000000" "#C16069" "#A2BF8A" "#ECCC87" "#80A0C2" "#B58DAE" "#86C0D1" "#dfdfdf"])
  '(ansi-term-color-vector
-   [unspecified "#282936" "#ea51b2" "#00f769" "#ebff87" "#62d6e8" "#b45bcf" "#62d6e8" "#e9e9f4"])
+   [unspecified "#282936" "#ea51b2" "#00f769" "#ebff87" "#62d6e8" "#b45bcf" "#62d6e8" "#e9e9f4"] t)
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
@@ -33,7 +33,7 @@
  '(neo-window-width 35)
  '(package-selected-packages
    (quote
-    (restclient tern-auto-complete xref-js2 company-tern aggressive-indent multi-term emojify eslint-fix dart-mode dracula-theme ace-jump-buffer ace-jump-mode badger-theme atom-dark-theme atom-one-dark-theme bubbleberry-theme ujelly-theme docker-compose-mode nodejs-repl indium eglot easy-kill-extras easy-kill doom-modeline zoom zerodark-theme yaml-mode winum use-package tagedit spacemacs-theme smooth-scrolling smex smartparens rjsx-mode rainbow-delimiters projectile php-mode paredit page-break-lines neotree move-dup markdown-mode json-mode js2-refactor jbeans-theme highlight-symbol highlight-indent-guides guide-key go-guru go-autocomplete focus fill-column-indicator exec-path-from-shell ergoemacs-status ergoemacs-mode dumb-jump doom-themes diminish counsel clojure-mode-extra-font-locking cider change-inner browse-kill-ring base16-theme alchemist)))
+    (goto-chg restclient tern-auto-complete xref-js2 company-tern aggressive-indent multi-term emojify eslint-fix dart-mode dracula-theme ace-jump-buffer ace-jump-mode badger-theme atom-dark-theme atom-one-dark-theme bubbleberry-theme ujelly-theme docker-compose-mode nodejs-repl indium eglot easy-kill-extras easy-kill doom-modeline zoom zerodark-theme yaml-mode winum use-package tagedit spacemacs-theme smooth-scrolling smex smartparens rjsx-mode rainbow-delimiters projectile php-mode paredit page-break-lines neotree move-dup markdown-mode json-mode js2-refactor jbeans-theme highlight-symbol highlight-indent-guides guide-key go-guru go-autocomplete focus fill-column-indicator exec-path-from-shell ergoemacs-status ergoemacs-mode dumb-jump doom-themes diminish counsel clojure-mode-extra-font-locking cider change-inner browse-kill-ring base16-theme alchemist)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(tetris-x-colors
    [[229 192 123]

@@ -174,6 +174,14 @@
 
     ace-jump-mode
 
+    company-tern
+
+    xref-js2
+
+    eslint-fix
+
+    indium
+
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
