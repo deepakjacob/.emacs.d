@@ -28,6 +28,20 @@
 
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . json-mode))
 
+
+;;(require 'lsp-mode)
+;;(add-hook 'rjsx-mode-hook #'lsp)
+
+;;(require 'lsp-ui)
+;;(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+;;(add-hook 'rjsx-mode-hook 'flycheck-mode)
+
+;;(require 'company-lsp)
+;;(push 'company-lsp company-backends)
+
+;;(setq lsp-print-io t)
+
+
 (require 'company)
 (require 'company-tern)
 
@@ -49,8 +63,6 @@
 (add-hook 'js2-mode-hook (lambda ()
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
-;; load Indium from its source code
-(require 'indium)
 
 (eval-after-load 'js-mode
 	   '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))

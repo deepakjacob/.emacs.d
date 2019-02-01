@@ -39,25 +39,6 @@
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
 
-    ;; key bindings and code colorization for Clojure
-    ;; https://github.com/clojure-emacs/clojure-mode
-    clojure-mode
-
-    ;; extra syntax highlighting for clojure
-    clojure-mode-extra-font-locking
-
-    ;; integration with a Clojure REPL
-    ;; https://github.com/clojure-emacs/cider
-    cider
-
-    ;; allow ido usage in as many contexts as possible. see
-    ;; customizations/navigation.el line 23 for a description
-    ;; of ido
-    ;; ido-ubiquitous
-
-    ;; Enhances M-x to allow easier execution of commands. Provides
-    ;; a filterable list of possible commands in the minibuffer
-    ;; http://www.emacswiki.org/emacs/Smex
     smex
 
     ;; project navigation
@@ -89,7 +70,6 @@
     ;; ace-window
     ;; use C-x-o to navigate windows within a frame
     windmove
-
 
     ;; expand-region
     expand-region
@@ -133,28 +113,12 @@
     ;; window switching
     winum
 
-    ;;elixir
-    ;; elixir-mode
-
-    ;; for elixir / phoenix / mix
-    ;; alchemist
-
     ;; vim style tet deletion within '',"", ``, [], {}, () etc
     change-inner
 
-    ;; markdown mode
     markdown-mode
 
-    ;; telephone-line
-
-    ;; smartparens
     smartparens
-
-    ;; go-mode
-
-    ;; go-autocomplete
-
-    ;; go-guru
 
     focus
 
@@ -170,17 +134,19 @@
 
     highlight-indent-guides
 
-    flycheck
-
     ace-jump-mode
+
+    lsp-mode
+
+    lsp-ui
+
+    company-lsp
 
     company-tern
 
     xref-js2
 
     eslint-fix
-
-    indium
 
     ))
 
@@ -249,12 +215,3 @@
 
 ;; code formatting
 (load "prettier-js.el")
-
-;; (load "setup-go.el")
-
-;; (load "setup-dart.el")
-
-;; (load "setup-elixir.el")
-
-;; Langauage-specific
-;;(load "setup-clojure.el")

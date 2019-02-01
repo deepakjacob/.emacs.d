@@ -173,13 +173,4 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
-
-;; Rust config
-;; (setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
-;; (setq racer-rust-src-path "/Users/jacobdeepak/Development/rust/rust/src") ;; Rust source code PATH
-
-
-;; (add-hook 'rust-mode-hook #'racer-mode)
-;; (add-hook 'racer-mode-hook #'eldoc-mode)
-;; (add-hook 'racer-mode-hook #'company-mode)
 (require 'goto-chg)
