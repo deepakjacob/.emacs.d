@@ -50,7 +50,7 @@
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
 ;; load Indium from its source code
-(require 'indium)
+;; (require 'indium)
 
 (eval-after-load 'js-mode
 	   '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))

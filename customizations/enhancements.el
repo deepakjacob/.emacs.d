@@ -6,4 +6,3 @@
 (eval-after-load 'flycheck
   '(custom-set-variables
     '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
-

@@ -49,7 +49,7 @@
 (use-package multiple-cursors
   :ensure t
   :bind (("C-." . mc/mark-next-like-this))
-)
+  )
 
 ;; comments
 (defun toggle-comment-on-line ()
@@ -93,28 +93,28 @@
 
 
 (define-globalized-minor-mode
-    global-text-scale-mode
-    text-scale-mode
-    (lambda () (text-scale-mode 1)))
+  global-text-scale-mode
+  text-scale-mode
+  (lambda () (text-scale-mode 1)))
 
-  (defun global-text-scale-adjust (inc) (interactive)
-    (text-scale-set 1)
-    (kill-local-variable 'text-scale-mode-amount)
-    (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
-    (global-text-scale-mode 1))
-  (global-set-key (kbd "M-0")
-                  '(lambda () (interactive)
-                     (global-text-scale-adjust (- text-scale-mode-amount))
-                     (global-text-scale-mode -1)))
-  (global-set-key (kbd "M-+")
-                  '(lambda () (interactive) (global-text-scale-adjust 1)))
-  (global-set-key (kbd "M-_")
-                  '(lambda () (interactive) (global-text-scale-adjust -1)))
+(defun global-text-scale-adjust (inc) (interactive)
+       (text-scale-set 1)
+       (kill-local-variable 'text-scale-mode-amount)
+       (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
+       (global-text-scale-mode 1))
+(global-set-key (kbd "M-0")
+                '(lambda () (interactive)
+                   (global-text-scale-adjust (- text-scale-mode-amount))
+                   (global-text-scale-mode -1)))
+(global-set-key (kbd "M-+")
+                '(lambda () (interactive) (global-text-scale-adjust 1)))
+(global-set-key (kbd "M-_")
+                '(lambda () (interactive) (global-text-scale-adjust -1)))
 
 (require 'guide-key)
 (setq guide-key/guide-key-sequence '("C-x" "C-c"
-"C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r"
-"M-s" "C-h" "C-c C-a" "C-c a"))
+                                     "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r"
+                                     "M-s" "C-h" "C-c C-a" "C-c a"))
 
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
@@ -127,8 +127,8 @@
 
   :bind (
          ("M-n" . 'browse-kill-ring-forward)
-    ("M-p" . 'browse-kill-ring-previous))
-)
+         ("M-p" . 'browse-kill-ring-previous))
+  )
 
 (global-set-key (kbd "M-Y") 'browse-kill-ring)
 (push 'browse-kill-ring-mode page-break-lines-modes)
@@ -142,7 +142,7 @@
 
 
 (defun surround-with (text-begin text-end)
-  "Surround current word or region with given text."
+  "surround current word or region with given text."
   (interactive "sStart : \nsEnd : ")
   (let (pos1 pos2 bds)
     (if (and transient-mark-mode mark-active)
@@ -166,20 +166,8 @@
   (interactive)
   (sgml-mode)
   (save-excursion
-   (sgml-pretty-print (point-min) (point-max))
-   (indent-region (point-min) (point-max))))
+    (sgml-pretty-print (point-min) (point-max))
+    (indent-region (point-min) (point-max))))
 
 (global-set-key (kbd "C-c x") 'jd/reformat-xml)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-
-
-;; Rust config
-;; (setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
-;; (setq racer-rust-src-path "/Users/jacobdeepak/Development/rust/rust/src") ;; Rust source code PATH
-
-
-;; (add-hook 'rust-mode-hook #'racer-mode)
-;; (add-hook 'racer-mode-hook #'eldoc-mode)
-;; (add-hook 'racer-mode-hook #'company-mode)
-(require 'goto-chg)

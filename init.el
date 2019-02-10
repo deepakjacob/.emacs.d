@@ -1,6 +1,30 @@
-;;;;
-;; Packages
-;;;;
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
+
+;;; Code:
+
+;; Produce backtraces when errors occur
+(setq debug-on-error t)
+
+(let ((minver "24.4"))
+  (when (version< emacs-version minver)
+    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+(when (version< emacs-version "25.1")
+  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
+
+;;----------------------------------------------------------------------------
+;; Adjust garbage collection thresholds during startup, and thereafter
+;;----------------------------------------------------------------------------
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+      (init-gc-cons-threshold (* 128 1024 1024)))
+  (setq gc-cons-threshold init-gc-cons-threshold)
+  (add-hook 'emacs-startup-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
+
 
 ;; Define package repositories
 (require 'package)
@@ -13,10 +37,6 @@
 
 (add-to-list 'package-archives
              '("melpa stable" . "http://melpa.milkbox.net/packages/") t)
-
-;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
-;;                          ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
 
 
 ;; Load and activate emacs packages. Do this first so that the
@@ -133,28 +153,13 @@
     ;; window switching
     winum
 
-    ;;elixir
-    ;; elixir-mode
-
-    ;; for elixir / phoenix / mix
-    ;; alchemist
-
     ;; vim style tet deletion within '',"", ``, [], {}, () etc
     change-inner
 
     ;; markdown mode
     markdown-mode
 
-    ;; telephone-line
-
-    ;; smartparens
     smartparens
-
-    ;; go-mode
-
-    ;; go-autocomplete
-
-    ;; go-guru
 
     focus
 
@@ -179,10 +184,6 @@
     xref-js2
 
     eslint-fix
-
-    ;; indium
-
-    ;; goto-chg
 
     ))
 
@@ -252,11 +253,4 @@
 ;; code formatting
 (load "prettier-js.el")
 
-;; (load "setup-go.el")
-
-;; (load "setup-dart.el")
-
-;; (load "setup-elixir.el")
-
-;; Langauage-specific
-;;(load "setup-clojure.el")
+(load "setup-clojure.el")

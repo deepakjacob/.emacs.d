@@ -54,13 +54,12 @@
 
 ;; projectile everywhere!
 (projectile-global-mode)
-;; projectile defect fix 
+;; projectile defect fix
 (setq projectile-mode-line '(:eval (format " Projectile[%s]" (projectile-project-name))))
 ;; use ivy as the completion backend for projectile
 (setq projectile-completion-system 'ivy)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
 
 ;; ignore node_modules folder
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
@@ -86,7 +85,7 @@
 
 ;;
 ;; ace jump mode major function
-;; 
+;;
 (autoload
   'ace-jump-mode
   "ace-jump-mode"
@@ -95,7 +94,7 @@
 ;; you can select the key you prefer to
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
-;; 
+;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
 (autoload

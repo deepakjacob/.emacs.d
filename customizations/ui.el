@@ -15,18 +15,11 @@
 
 ;;default starting emacs size
 (add-to-list 'default-frame-alist '(height . 90))
-(add-to-list 'default-frame-alist '(width . 180))
+(add-to-list 'default-frame-alist '(width . 150))
 
-;; Color Themes
-;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
-;; for a great explanation of emacs color themes.
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html
-;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-;; (load-theme 'gruvbox-dark-hard t)
 (load-theme 'doom-one)
-;;(zerodark-setup-modeline-format)
 
 ;; Show line numbers
 (global-linum-mode)
@@ -38,7 +31,7 @@
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 130)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -142,7 +135,7 @@
 (setq doom-modeline-height 25)
 
 ;; How wide the mode-line bar should be (only respected in GUI Emacs).
-(setq doom-modeline-bar-width 5)
+(setq doom-modeline-bar-width 4)
 
 ;; Determines the style used by `doom-modeline-buffer-file-name'.
 ;;
