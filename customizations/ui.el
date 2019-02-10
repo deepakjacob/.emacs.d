@@ -24,19 +24,21 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-one t)
+;; (load-theme 'gruvbox-dark-hard t)
+(load-theme 'doom-one)
 ;;(zerodark-setup-modeline-format)
 
 ;; Show line numbers
-;;(global-linum-mode)
+(global-linum-mode)
 
 ;; Chnage the font to Operator Mono
-(set-face-attribute 'default nil :family "Andale Mono") ;; font
+;; (set-face-attribute 'default nil :family "NanumGothicCoding") ;; font
+(set-face-attribute 'default nil :family "Operator Mono") ;; font
 ;; font for all unicode characters
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 160)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -116,7 +118,7 @@
 ;;(global-fci-mode 1)
 
 
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark)) ;; assuming you are using a dark theme
 (setq ns-use-proxy-icon nil)
 (setq frame-title-format nil)
@@ -140,7 +142,7 @@
 (setq doom-modeline-height 25)
 
 ;; How wide the mode-line bar should be (only respected in GUI Emacs).
-(setq doom-modeline-bar-width 3)
+(setq doom-modeline-bar-width 5)
 
 ;; Determines the style used by `doom-modeline-buffer-file-name'.
 ;;

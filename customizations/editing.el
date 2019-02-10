@@ -126,7 +126,7 @@
   :config (setq browse-kill-ring-separator "\f")
 
   :bind (
-    ("M-n" . 'browse-kill-ring-forward)
+         ("M-n" . 'browse-kill-ring-forward)
     ("M-p" . 'browse-kill-ring-previous))
 )
 

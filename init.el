@@ -180,7 +180,9 @@
 
     eslint-fix
 
-    indium
+    ;; indium
+
+    ;; goto-chg
 
     ))
 

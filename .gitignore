@@ -12,4 +12,5 @@ backups
 elpa/
 themes/
 network-security.data
-
+.mc-lists.el
+eshell/
