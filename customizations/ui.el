@@ -1,16 +1,7 @@
-;; These customizations change the way emacs looks and disable/enable
-;; some user interface elements. Some useful customizations are
-;; commented out, and begin with the line "CUSTOMIZE". These are more
-;; a matter of preference and may require some fiddling to match your
-;; preferences
-
-;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
-;; Turn of the tool bar at the top of the each frame because it's distracting
 (tool-bar-mode -1)
 
 (setq-default cursor-type 'bar) ;;makes cursor a line
-;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
 
 ;;default starting emacs size
@@ -23,11 +14,9 @@
 
 ;; Show line numbers
 (global-linum-mode)
+'(linum-format " %3i ")
 
-;; Chnage the font to Operator Mono
-;; (set-face-attribute 'default nil :family "NanumGothicCoding") ;; font
 (set-face-attribute 'default nil :family "Operator Mono") ;; font
-;; font for all unicode characters
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 
 ;; increase font size for better readability
@@ -35,32 +24,17 @@
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
-(setq ;; makes killing/yanking interact with the clipboard
+(setq-default ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
-
-      ;; I'm actually not sure what this does but it's recommended?
-      ;; x-select-enable-primary t
-
-      ;; Save clipboard strings into kill ring before replacing them.
-      ;; When one selects something in another program to paste it into Emacs,
-      ;; but kills something in Emacs before actually pasting it,
-      ;; this selection is gone unless this variable is non-nil
       save-interprogram-paste-before-kill t
-
-
-      ;; Shows all options when running apropos. For more info,
-      ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
       apropos-do-all t
-
-      ;; Mouse yank commands yank at point instead of at click.
-      ;; mouse-yank-at-point t
       )
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-auto-character-face-perc 10)
-(setq highlight-indent-guides-responsive 'top)
-
+(setq-default highlight-indent-guides-method 'character)
+(setq-default highlight-indent-guides-auto-character-face-perc 10)
+(setq-default highlight-indent-guides-responsive 'top)
+'(highlight-indent-guides-character 124)
 
 (global-prettify-symbols-mode +1)
 
@@ -82,6 +56,11 @@
 (require 'neotree)
 (define-key global-map (kbd "C-c n") 'neotree-toggle)
 (define-key global-map (kbd "C-c i") 'neotree-dir)
+'(neo-theme (quote ascii))
+'(neo-window-fixed-size nil)
+'(neo-window-position (quote right))
+'(neo-window-width 35)
+'(doom-neotree-folder-size 1.0)
 
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
@@ -106,9 +85,13 @@
   (global-page-break-lines-mode t)
 )
 
-;;(require 'fill-column-indicator)
-;;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-;;(global-fci-mode 1)
+(require 'fill-column-indicator)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
+'(fci-always-use-textual-rule nil)
+'(fci-rule-color "light green")
+'(fci-rule-use-dashes nil)
+'(fci-rule-width 1)
 
 
 ;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))

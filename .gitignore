@@ -14,3 +14,4 @@ themes/
 network-security.data
 .mc-lists.el
 eshell/
+custom.el
