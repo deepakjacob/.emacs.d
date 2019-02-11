@@ -26,15 +26,3 @@
          (if this-win-2nd (other-window 1))))))
 
 (define-key ctl-x-4-map "t" 'toggle-window-split)
-
-(defun switch-to-minibuffer-window ()
-    "switch to minibuffer window (if active)"
-    (interactive)
-    (when (active-minibuffer-window)
-        (select-window (active-minibuffer-window))))
-(global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
-

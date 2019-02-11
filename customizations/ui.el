@@ -34,13 +34,13 @@
 (setq-default highlight-indent-guides-method 'character)
 (setq-default highlight-indent-guides-auto-character-face-perc 10)
 (setq-default highlight-indent-guides-responsive 'top)
-'(highlight-indent-guides-character 124)
+(setq-default highlight-indent-guides-character 124)
 
 (global-prettify-symbols-mode +1)
 
 ;; full path in title bar
-(setq-default frame-title-format '("")) ;;frame title
-;;(setq-default frame-title-format "%b (%f)")
+;; (setq-default frame-title-format '("")) ;;frame title
+(setq-default frame-title-format "%b (%f)")
 
 ;; don't pop up font menu
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
@@ -56,11 +56,11 @@
 (require 'neotree)
 (define-key global-map (kbd "C-c n") 'neotree-toggle)
 (define-key global-map (kbd "C-c i") 'neotree-dir)
-'(neo-theme (quote ascii))
-'(neo-window-fixed-size nil)
-'(neo-window-position (quote right))
-'(neo-window-width 35)
-'(doom-neotree-folder-size 1.0)
+(setq-default neo-theme (quote ascii))
+(setq-default neo-window-fixed-size nil)
+(setq-default neo-window-position 'right)
+(setq-default neo-window-width 35)
+(setq-default doom-neotree-folder-size 1.0)
 
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
@@ -88,13 +88,14 @@
 (require 'fill-column-indicator)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
-'(fci-always-use-textual-rule nil)
-'(fci-rule-color "light green")
-'(fci-rule-use-dashes nil)
-'(fci-rule-width 1)
+(setq-default fci-always-use-textual-rule nil)
+(setq-default fci-rule-color "deep orange")
+(setq-default fci-rule-column 100)
+(setq-default fci-rule-use-dashes nil)
+(setq-default fci-rule-width 1)
 
 
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark)) ;; assuming you are using a dark theme
 (setq ns-use-proxy-icon nil)
 (setq frame-title-format nil)
@@ -109,7 +110,7 @@
 
 
 (defadvice ansi-term (after advise-ansi-term-coding-system)
-    (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
+  (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
 
 (require 'doom-modeline)
@@ -118,7 +119,7 @@
 (setq doom-modeline-height 25)
 
 ;; How wide the mode-line bar should be (only respected in GUI Emacs).
-(setq doom-modeline-bar-width 4)
+(setq doom-modeline-bar-width 2)
 
 ;; Determines the style used by `doom-modeline-buffer-file-name'.
 ;;

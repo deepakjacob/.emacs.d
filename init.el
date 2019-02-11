@@ -254,3 +254,6 @@
 (load "prettier-js.el")
 
 (load "setup-clojure.el")
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
