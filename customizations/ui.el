@@ -89,7 +89,7 @@
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
 (setq-default fci-always-use-textual-rule nil)
-(setq-default fci-rule-color "deep orange")
+(setq-default fci-rule-color "black")
 (setq-default fci-rule-column 100)
 (setq-default fci-rule-use-dashes nil)
 (setq-default fci-rule-width 1)
