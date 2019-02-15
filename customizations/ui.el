@@ -10,8 +10,8 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-;; (load-theme 'doom-one t)
-(load-theme 'base16-chalk t)
+(load-theme 'doom-one t)
+;;(load-theme 'base16-chalk t)
 ;; Show line numbers
 ;; (global-linum-mode)
 ;; '(linum-format " %3i ")
