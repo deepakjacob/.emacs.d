@@ -52,8 +52,9 @@
 ;; load Indium from its source code
 ;; (require 'indium)
 
-(eval-after-load 'js-mode
-	   '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+;;;
+;; (eval-after-load 'js-mode
+	;; '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
 
-(eval-after-load 'js2-mode
-	   '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+;; (eval-after-load 'js2-mode
+	   ;; '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))

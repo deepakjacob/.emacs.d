@@ -10,17 +10,19 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-one)
-
+;; (load-theme 'doom-one t)
+(load-theme 'base16-chalk t)
 ;; Show line numbers
-(global-linum-mode)
-'(linum-format " %3i ")
+;; (global-linum-mode)
+;; '(linum-format " %3i ")
 
-(set-face-attribute 'default nil :family "Operator Mono") ;; font
+
+;;(set-face-attribute 'default nil :family "Operator Mono") ;; font
+(set-face-attribute 'default nil :family "Monaco") ;; font
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 110)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -30,7 +32,7 @@
       apropos-do-all t
       )
 
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq-default highlight-indent-guides-method 'character)
 (setq-default highlight-indent-guides-auto-character-face-perc 10)
 (setq-default highlight-indent-guides-responsive 'top)
@@ -87,7 +89,7 @@
 
 (require 'fill-column-indicator)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+;; (global-fci-mode 1)
 (setq-default fci-always-use-textual-rule nil)
 (setq-default fci-rule-color "black")
 (setq-default fci-rule-column 100)

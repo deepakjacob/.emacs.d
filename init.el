@@ -185,6 +185,14 @@
 
     eslint-fix
 
+    go-mode
+
+    go-autocomplete
+
+    go-guru
+
+    dockerfile-mode
+
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -255,5 +263,9 @@
 
 (load "setup-clojure.el")
 
+(load "setup-go.el")
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+(load "zen-mode")
