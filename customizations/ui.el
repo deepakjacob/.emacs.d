@@ -17,12 +17,12 @@
 ;; '(linum-format " %3i ")
 
 
-;;(set-face-attribute 'default nil :family "Operator Mono") ;; font
-(set-face-attribute 'default nil :family "Monaco") ;; font
+(set-face-attribute 'default nil :family "Operator Mono") ;; font
+;; (set-face-attribute 'default nil :family "Monaco") ;; font
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 150)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; These settings relate to how emacs interacts with your operating system
