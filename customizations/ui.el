@@ -50,7 +50,7 @@
 ;; no bell
 (setq ring-bell-function 'ignore)
 
-(require 'magit)
+;; (require 'magit)
 (define-key global-map (kbd "C-c m") 'magit-status)
 
 ;; load the all-the-icons prior to loading neotree

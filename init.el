@@ -70,11 +70,6 @@
     ;; https://github.com/clojure-emacs/cider
     cider
 
-    ;; allow ido usage in as many contexts as possible. see
-    ;; customizations/navigation.el line 23 for a description
-    ;; of ido
-    ;; ido-ubiquitous
-
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer
     ;; http://www.emacswiki.org/emacs/Smex
@@ -106,10 +101,8 @@
     ;; for json
     json-mode
 
-    ;; ace-window
     ;; use C-x-o to navigate windows within a frame
     windmove
-
 
     ;; expand-region
     expand-region
@@ -233,7 +226,7 @@
 
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
-;; (load "shell-integration.el")
+(load "shell-integration.el")
 
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
