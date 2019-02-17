@@ -3,24 +3,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#1B2229" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#DFDFDF"])
+ '(custom-safe-themes
+   (quote
+    ("f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default)))
+ '(fci-rule-color "#5B6268")
  '(flycheck-disabled-checkers (quote (javascript-jshint javascript-jscs)))
- '(nrepl-message-colors
-   (quote
-    ("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896")))
- '(package-selected-packages
-   (quote
-    (esup color-theme-sanityinc-tomorrow color-theme-monokai rainbow-mode twilight-anti-bright-theme deep-thought-theme base16-theme danneskjold-theme badwolf-theme jujube-theme jbeans-theme bubbleberry-theme blackboard-bold-mode badger-theme gruber-darker-theme color-theme-gruber-darker blackboard-theme klere-theme kooten-theme github-theme atom-one-dark-theme ujelly-theme dockerfile-mode docker-compose-mode guru-mode go-imports eslint-fix xref-js2 company-tern ace-jump-mode flycheck highlight-indent-guides doom-modeline eglot easy-kill fill-column-indicator zoom focus smartparens markdown-mode change-inner winum diminish move-dup browse-kill-ring guide-key use-package highlight-symbol doom-themes js2-refactor multiple-cursors company smooth-scrolling page-break-lines neotree dumb-jump expand-region json-mode rjsx-mode counsel magit tagedit rainbow-delimiters projectile smex cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell)))
- '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")))
- '(powerline-color1 "#3d3d68")
- '(powerline-color2 "#292945")
- '(tetris-x-colors
-   [[229 192 123]
-    [97 175 239]
-    [209 154 102]
-    [224 108 117]
-    [152 195 121]
-    [198 120 221]
-    [86 182 194]])
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
  '(vc-annotate-background "#282c34")
  '(vc-annotate-color-map
    (list
