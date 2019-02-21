@@ -82,24 +82,13 @@
   (setq-default doom-neotree-folder-size 1.0)
   )
 
-(use-package doom-modeline
-  :ensure t
-  :config
-  (doom-modeline-mode)
-  (setq doom-modeline-lsp t)
-  (setq doom-modeline-icon t)
-  (setq doom-modeline-github t)
-  (setq doom-modeline-height 25)
-  (setq doom-modeline-version nil)
-  (setq doom-modeline-bar-width 2)
-  (setq doom-modeline-persp-name t)
-  (setq doom-modeline-minor-modes nil)
-  (setq doom-modeline-major-mode-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-github-interval (* 30 60))
-  (setq doom-modeline-python-executable "python")
-  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
-  )
+(use-package    feebleline
+  :ensure       t
+  :custom       (feebleline-show-git-branch             t)
+                (feebleline-show-dir                    t)
+                (feebleline-show-time                   nil)
+                (feebleline-show-previous-buffer        nil)
+  :config       (feebleline-mode 1))
 
 ;; Turn ^L into nice <hr>
 (use-package page-break-lines

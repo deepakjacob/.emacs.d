@@ -164,8 +164,6 @@
 
     eglot
 
-    doom-modeline
-
     highlight-indent-guides
 
     flycheck
