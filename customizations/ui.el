@@ -6,27 +6,27 @@
 
 ;; window poisition, width and height settings
  (setq default-frame-alist
-       '((top . 10) (left . 275) (width . 150) (height . 90)))
+       '((top . 10) (left . 275) (width . 115) (height . 90)))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-one t)
+(load-theme 'doom-opera t)
 
 (global-prettify-symbols-mode +1)
-(global-linum-mode)
-'(linum-format " %3i ")
+;;(global-linum-mode)
+;;'(linum-format " %3i ")
 
 ;; regular and unicode font setting
-(set-face-attribute 'default nil :family "Operator Mono")
+(set-face-attribute 'default nil :family "Inconsolata")
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 150)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; full path in title bar
 ;; (setq frame-title-format "%b (%f)")
 (setq frame-title-format nil)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark)) ;; assuming you are using a dark theme
 ;; no bell
 (setq ring-bell-function 'ignore)
@@ -48,7 +48,7 @@
 
 (use-package fill-column-indicator
   :defer t
-  :hook (prog-mode . fci-mode)
+  ;; :hook (prog-mode . fci-mode)
   :config
   (setq-default fci-always-use-textual-rule nil)
   (setq-default fci-rule-color "black")
@@ -59,7 +59,7 @@
 
 (use-package highlight-indent-guides
   :defer t
-  :hook (prog-mode . highlight-indent-guides-mode)
+  ;; :hook (prog-mode . highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-auto-enabled t)
   (setq-default highlight-indent-guides-method 'character)
