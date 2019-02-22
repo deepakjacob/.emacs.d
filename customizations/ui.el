@@ -10,24 +10,27 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-opera t)
+(load-theme 'doom-one t)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 
 ;; regular and unicode font setting
-(set-face-attribute 'default nil :family "Inconsolata")
+(set-face-attribute 'default nil :family "Roboto Mono for Powerline")
 (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 130)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; full path in title bar
 ;; (setq frame-title-format "%b (%f)")
 (setq frame-title-format nil)
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark)) ;; assuming you are using a dark theme
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+(set-frame-parameter (selected-frame) 'alpha '(100 . 55))
+
+;; assuming you are using a dark theme
 ;; no bell
 (setq ring-bell-function 'ignore)
 
@@ -85,20 +88,10 @@
 (use-package doom-modeline
   :ensure t
   :config
-  (doom-modeline-mode)
-  (setq doom-modeline-lsp t)
-  (setq doom-modeline-icon t)
-  (setq doom-modeline-github t)
-  (setq doom-modeline-height 25)
-  (setq doom-modeline-version nil)
-  (setq doom-modeline-bar-width 2)
-  (setq doom-modeline-persp-name t)
-  (setq doom-modeline-minor-modes nil)
-  (setq doom-modeline-major-mode-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-github-interval (* 30 60))
-  (setq doom-modeline-python-executable "python")
-  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-mode 1)
+  (setq doom-modeline-icon nil)
+
+
   )
 
 ;; Turn ^L into nice <hr>
