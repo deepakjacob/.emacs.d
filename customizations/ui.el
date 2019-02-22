@@ -10,7 +10,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-one t)
+(load-theme 'JD-DOOM-ONE t)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
@@ -28,7 +28,7 @@
 (setq frame-title-format nil)
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(100 . 55))
+(set-frame-parameter (selected-frame) 'alpha '(93 . 55))
 
 ;; assuming you are using a dark theme
 ;; no bell

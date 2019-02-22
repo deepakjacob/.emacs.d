@@ -1,8 +1,8 @@
 ;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
 ;;; Commentary:
-
-;; This file bootstraps the configuration, which is divided into
-;; a number of other files.
+;;; init.el --- Initialization file for Emacs
+;;; Commentary: Emacs Startup File --- this file bootstraps the configuration,
+;; which is divided into a number of other files.
 
 ;;; Code:
 
@@ -87,6 +87,7 @@
     ;; git integration
     magit
 
+    ;; a collection of Ivy-enhanced versions of common Emacs commands.
     counsel
 
     ;; for general completion
@@ -95,34 +96,35 @@
     ;; for navigtion
     swiper
 
-    ;; for react
+    ;; for react editing support
     rjsx-mode
 
     ;; for json
     json-mode
 
-    ;; use C-x-o to navigate windows within a frame
+    ;; use C-x-o to switch between windows within a frame
     windmove
 
-    ;; expand-region
+    ;; expand-region use C-=
     expand-region
 
-    ;;dump-jump
+    ;;jump to definition of variable and functions
     dumb-jump
 
-    ;;neotree
+    ;;the project file explorer
     neotree
 
     page-break-lines
 
-    smooth-scrolling
-
+    ;; for auto completion
     company
 
     multiple-cursors
 
+    ;; refactor javascript or node js programs
     js2-refactor
 
+    ;; syntax themes
     doom-themes
 
     ;; highlight symbols
@@ -134,14 +136,11 @@
     ;; display keyboard shortcuts
     guide-key
 
-    ;; see kill ring contents
+    ;; standard way to browse and select the first couple of kill ring items
     browse-kill-ring
 
-    ;; duplicate region above / below
+    ;; duplicate lines above / below
     move-dup
-
-    ;; remove clutter while displaying minor modes
-    diminish
 
     ;; window switching
     winum
@@ -152,17 +151,23 @@
     ;; markdown mode
     markdown-mode
 
+    ;; insert parenthesis automatically
     smartparens
 
     focus
 
     zoom
 
+    ;; rulers for source code length
     fill-column-indicator
 
+    ;; easy-kill is a drop-in replacement for kill-ring-save
     easy-kill
 
+    ;; Emacs Polyglot: an Emacs LSP client that stays out of your way:
+
     eglot
+
 
     doom-modeline
 
@@ -245,6 +250,7 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
+;;; enhancements to buffers eg, flycheck mode
 (load "enhancements.el")
 
 (load "window.el")
@@ -260,5 +266,5 @@
 
 
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-;; (load "zen-mode")
+
+;;; init ends here
