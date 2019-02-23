@@ -15,3 +15,7 @@ network-security.data
 .mc-lists.el
 eshell/
 custom.el
+/.recentf~
+/custom.el~
+/transient/history.el
+ac-comphist.dat

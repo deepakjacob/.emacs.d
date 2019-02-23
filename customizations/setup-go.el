@@ -1,6 +1,10 @@
+;;; setup-go.el --- setup for golang
+;;; Commentary:
 
+;;; Code:
 ;; Define function to call when go-mode loads
 (defun my-go-mode-hook ()
+  "Execute go GOIMPORTS."
   (setq gofmt-command "goimports")                ; gofmt uses invokes goimports
   (add-hook 'before-save-hook 'gofmt-before-save) ; gofmt before every save
   (if (not (string-match "go" compile-command))   ; set compile command default
@@ -37,3 +41,6 @@
 
 ;; If the go-guru.el file is in the load path, this will load it.
 (require 'go-guru)
+
+
+;;; setup-go.el ends here
