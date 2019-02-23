@@ -1,4 +1,7 @@
-;; for files 'like' json
+;;; setup-js.el --- editing goodies for node and JS
+;;; Commentary:
+
+;;; Code:
 (use-package json-mode
   :init
   (setq-default json-reformat:indent-width 2)
@@ -48,3 +51,5 @@
 
 ;; (eval-after-load 'js2-mode
   ;; '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+
+;;; setup-js.el ends here
