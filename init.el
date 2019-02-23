@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; init.el --- Initialization file for Emacs
 ;;; Commentary: Emacs Startup File --- this file bootstraps the configuration,
-;; which is divided into a number of other files.
 
 ;;; Code:
 

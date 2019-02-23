@@ -2,6 +2,7 @@
 ;;; Commentary:
 
 ;;; Code:
+(winum-mode)
 
 ;;; provide help on shortcuts
 (require 'guide-key)

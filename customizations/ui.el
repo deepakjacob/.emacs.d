@@ -1,3 +1,8 @@
+;;; ui.el --- various ui enhancements
+;;; Commentary:
+
+;;; Code:
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
@@ -28,7 +33,7 @@
 (setq frame-title-format nil)
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(93 . 55))
+(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
 
 ;; assuming you are using a dark theme
 ;; no bell
@@ -41,9 +46,6 @@
    save-interprogram-paste-before-kill t
    apropos-do-all t
    )
-
-;; (require 'magit)
-(define-key global-map (kbd "C-c m") 'magit-status)
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)

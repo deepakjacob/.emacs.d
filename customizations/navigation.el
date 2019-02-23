@@ -1,27 +1,23 @@
-;; These customizations make it easier for you to navigate files,
+;;; navigation.el --- customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
 
+;;; Commentary:
 
-;; "When several buffers visit identically-named files,
-;; Emacs must give the buffers distinct names. The usual method
-;; for making buffer names unique adds ‘<2>’, ‘<3>’, etc. to the end
-;; of the buffer names (all but one of them).
-;; The forward naming method includes part of the file's directory
-;; name at the beginning of the buffer name
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
+;;; Code:
 
-;; Turn on recent file mode so that you can more easily switch to
-;; recently edited files when you first start emacs
-(setq recentf-save-file (concat user-emacs-directory ".recentf"))
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 40)
+;;; "When several buffers visit identically-named files,
+;;; Emacs must give the buffers distinct names. The usual method
+;;; for making buffer names unique adds ‘<2>’, ‘<3>’, etc. to the end
+;;; of the buffer names (all but one of them).
+;;; The forward naming method includes part of the file's directory
+;;; name at the beginning of the buffer name
+;;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
 
-;; Enhances M-x to allow easier execution of commands. Provides
-;; a filterable list of possible commands in the minibuffer
-;; http://www.emacswiki.org/emacs/Smex
+
+;;; Enhances M-x to allow easier execution of commands. Provides
+;;; a filterable list of possible commands in the minibuffer
+;;; http://www.emacswiki.org/emacs/Smex
+
 (setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 
@@ -53,13 +49,14 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; projectile everywhere!
-(projectile-global-mode)
+(projectile-mode)
 ;; projectile defect fix
 (setq projectile-mode-line '(:eval (format " Projectile[%s]" (projectile-project-name))))
 ;; use ivy as the completion backend for projectile
 (setq projectile-completion-system 'ivy)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 
 ;; ignore node_modules folder
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
@@ -68,40 +65,4 @@
 (add-to-list 'projectile-globally-ignored-directories "build/*")
 (add-to-list 'projectile-globally-ignored-directories "public/static/*")
 
-;; use C-x-o to navigate windows
-(winum-mode)
-
-(use-package dumb-jump
-  :bind (("M-g o" . dumb-jump-go-other-window)
-         ("M-g j" . dumb-jump-go)
-         ("M-g i" . dumb-jump-go-prompt)
-         ("M-g x" . dumb-jump-go-prefer-external)
-         ("M-g z" . dumb-jump-go-prefer-external-other-window))
-  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
-  :ensure)
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;;
-;; ace jump mode major function
-;;
-(autoload
-  'ace-jump-mode
-  "ace-jump-mode"
-  "Emacs quick move minor mode"
-  t)
-;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
-;;
-;; enable a more powerful jump back function from ace jump mode
-;;
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+;;; navigation.el ends here
