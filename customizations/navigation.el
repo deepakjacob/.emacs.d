@@ -60,6 +60,8 @@
 
 ;; ignore node_modules folder
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
+(add-to-list 'projectile-globally-ignored-directories "client/x-app/node_modules")
+(add-to-list 'projectile-globally-ignored-directories "**/*/node_modules")
 (add-to-list 'projectile-globally-ignored-directories "functions/node_modules")
 (add-to-list 'projectile-globally-ignored-directories "src/mocks/node_modules")
 (add-to-list 'projectile-globally-ignored-directories "build/*")

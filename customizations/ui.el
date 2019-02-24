@@ -31,7 +31,7 @@
 ;; full path in title bar
 ;; (setq frame-title-format "%b (%f)")
 (setq frame-title-format nil)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (set-frame-parameter (selected-frame) 'alpha '(95 . 50))
 
