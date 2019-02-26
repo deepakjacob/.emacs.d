@@ -15,7 +15,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'JD-DOOM-ONE t)
+(load-theme 'jd-pencil t)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
@@ -23,17 +23,17 @@
 
 ;; regular and unicode font setting
 (set-face-attribute 'default nil :family "Roboto Mono for Powerline")
-(set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
+;; (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 130)
+;; (set-face-attribute 'default nil :height 150)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; full path in title bar
 ;; (setq frame-title-format "%b (%f)")
 (setq frame-title-format nil)
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
+(set-frame-parameter (selected-frame) 'alpha '(100 . 75))
 
 ;; assuming you are using a dark theme
 ;; no bell
