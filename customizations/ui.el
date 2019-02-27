@@ -22,10 +22,10 @@
 ;;'(linum-format " %3i ")
 
 ;; regular and unicode font setting
-(set-face-attribute 'default nil :family "Roboto Mono for Powerline")
+(set-face-attribute 'default t :font "Roboto Mono for powerline")
 ;; (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 ;; increase font size for better readability
-;; (set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 130)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; full path in title bar
@@ -33,7 +33,7 @@
 (setq frame-title-format nil)
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(100 . 75))
+(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
 
 ;; assuming you are using a dark theme
 ;; no bell
@@ -102,3 +102,9 @@
   :config
   (global-page-break-lines-mode t)
 )
+
+;; '(js2-function-call ((t (:foreground "#7c6fe5", :underline t))))
+;; '(js2-function-param ((t (:foreground "#6edcbd"))))
+
+
+;;; ui.el ends here

@@ -62,7 +62,9 @@
       (*mode-line-bg*       "#202020")
       (*mode-line-fg*       "#CCCCCC")
       ;; (*normal*             "#F6F3E8")
-      (*normal*             "#e4e4e4")
+      ;;(*normal*             "#e4e4e4")
+      (*normal*             "#f4f4f4")
+      ;;(*normal*             "white")
       (*number*             "#FF73FD")
       (*operators*          "#FFFFB6")
       (*red*                "#FF6C60")
@@ -156,6 +158,10 @@
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
+
+;; '(js2-function-call ((t (:foreground "#7c6fe5" :underline t))))
+;; '(js2-function-param ((t (:foreground "#6edcbd"))))
+
 
 (provide-theme 'jd-pencil)
 ;;; jd-pencil-theme.el ends here

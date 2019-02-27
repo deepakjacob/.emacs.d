@@ -223,6 +223,8 @@
 ;;;;
 ;; Customization
 ;;;;
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file 'no-error 'no-message)
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
@@ -259,7 +261,5 @@
 
 (load "setup-go.el")
 
-
-(setq custom-file "~/.emacs.d/custom.el")
 
 ;;; init ends here
