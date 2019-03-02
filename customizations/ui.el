@@ -15,17 +15,17 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'jd-pencil t)
+(load-theme 'kaolin-bubblegum t)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 
 ;; regular and unicode font setting
-(set-face-attribute 'default t :font "Roboto Mono for powerline")
-;; (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
+(set-face-attribute 'default t :font "Roboto Mono for Powerline")
+(set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 150)
 (set-face-attribute 'fringe nil :background nil)
 
 ;; full path in title bar
