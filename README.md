@@ -27,14 +27,16 @@ These emacs customizations support following languages/ frameworks with all the 
 From Eric S. Raymond’s excellent book “The Art of Unix Programming”
 > It is a common joke, both among fans and detractors of Emacs, to describe it as an operating system masquerading as an editor.
 
-For the people who are not interested in reading in this long `README` and just want to compare editors, here is the main difference I felt:
-
-In emacs your ability to add a feature is NOT constrained excessively by the architecture, interfaces, class or file loading order etc. Customizations are NOT limited to the following: addinga a keyboard shortcut, changing syntax theme or performing an action while you save a file. Infact the above are easier to perform than in VS Code or Atom. Normally, offering a simple functionality wont force you to write thousands lines of code.  Also you wont be asked to provide access to your contacts or be forced to upgrade computer to 16GB RAM or i7 processor.
-
-In my machine emacs takes about 130 MB of memory in GUI mode after continuously using it for about a week with no restarts. If you use server / client mode the memory requirement will be far lesser..
-
-
 While it is true that learning curve to master emacs is steep, it is NOT a poor bet or an archaic editor by any means, in other words your emacs is as good as your configuration. It is infinitely configurable and you should know that it may take months to get to the flexibility you expect.
+
+## Comparing it with new age editors
+
+Here is the main difference I felt:
+
+
+>Your ability to add features is NOT constrained excessively by the architecture, interfaces, class or file loading order etc. Customizations are NOT limited to the following: addinga a keyboard shortcut, changing syntax theme or performing an action while you save a file. Infact the above are easier to perform in Emacs than in VS Code or Atom. Normally, offering a simple functionality wont force you to write thousands lines of code.  Also you wont be asked to provide access to your contacts or be forced to upgrade computer to 16GB RAM or i7 processor.
+
+Less bloated - in terms of architecture or hardware requirements. Emacs takes about 130 MB of memory in GUI mode after continuously using it for about a week with no restarts. If you use server / client mode the memory requirement will be far lesser.
 
 ### For the newbies
 
