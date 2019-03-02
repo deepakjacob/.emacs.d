@@ -3,9 +3,13 @@
 
 # Art of software development in emacs
 
-    ![Emacs 26.1](img/emacs.png "Emacs 26.1")
+![Emacs 26.1](img/emacs.png "Emacs 26.1")
 
-> Main idea behind emacs customization is to stay minimalistic and responsive while providing rich funcationality - but nothing like form over function
+
+
+> Emacs running on OS X with react file being worked on, in left window, Flycheck buffer on second column top, Magit on bottom and neotree to the right.
+
+> Main idea behing this customization is to stay minimalistic and responsive while providing rich funcationality - but nothing like form over function
 
 These emacs customizations support following languages/ frameworks with all the goodies offered by emacs normally:
 
