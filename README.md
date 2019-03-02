@@ -3,6 +3,8 @@
 
 # Art of software development in emacs
 
+    ![Emacs 26.1](img/emacs.png "Emacs 26.1")
+
 > Main idea behind emacs customization is to stay minimalistic and responsive while providing rich funcationality - but nothing like form over function
 
 These emacs customizations support following languages/ frameworks with all the goodies offered by emacs normally:
