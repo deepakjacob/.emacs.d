@@ -1,12 +1,11 @@
-;;; ir-black-theme.el --- Port of ir-black theme
 
-;; Copyright (C) 2012  Jon-Michael Deldin
+;; Copyright (C) 2019  Deepak Jacob
 
-;; Author: Jon-Michael Deldin <dev@jmdeldin.com>
+;; Author: Deepak Jacob <deepak.jacob@gmail.com>
 ;; Keywords: faces
-;; Package-Version: 20130303.755
-;; Compatibility: 24
-;; Version: 1.0.1
+;; Package-Version: 20190309.001
+;; Compatibility: 26
+;; Version: 0.0.1
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -91,7 +90,7 @@
    `(header-line ((t (:background, *mode-line-bg* :foreground, *normal*)))) ;; info header
    `(highlight ((t (:background, *current-line*))))
    `(highlight-face ((t (:background, *current-line*))))
-   `(hl-line ((t (:background, *current-line* :underline t))))
+   `(hl-line ((t (:background))))
    `(info-xref ((t (:foreground, *keywords* :underline t))))
    `(region ((t (:background, *visual-selection*))))
    `(underline ((nil (:underline t))))
@@ -158,10 +157,6 @@
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
-
-;; '(js2-function-call ((t (:foreground "#7c6fe5" :underline t))))
-;; '(js2-function-param ((t (:foreground "#6edcbd"))))
-
 
 (provide-theme 'jd-pencil)
 ;;; jd-pencil-theme.el ends here

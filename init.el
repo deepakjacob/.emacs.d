@@ -125,6 +125,7 @@
 
     ;; syntax themes
     doom-themes
+    spacemacs-theme
 
     ;; highlight symbols
     highlight-symbol
@@ -222,9 +223,12 @@
 
 ;;;;
 ;; Customization
+;;;
 ;;;;
+;;;
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'no-error 'no-message)
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.

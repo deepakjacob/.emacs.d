@@ -15,18 +15,22 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'jd-pencil t)
+(load-theme 'spacemacs-dark t)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 
+(normal-erase-is-backspace-mode 1)
+
 ;; regular and unicode font setting
-(set-face-attribute 'default t :font "Roboto Mono for powerline")
-;; (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
-;; increase font size for better readability
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 130
+                    :weight 'normal
+                    :width 'normal)
 (set-face-attribute 'fringe nil :background nil)
+(set-face-bold 'bold nil)
 
 ;; full path in title bar
 ;; (setq frame-title-format "%b (%f)")
@@ -102,9 +106,5 @@
   :config
   (global-page-break-lines-mode t)
 )
-
-;; '(js2-function-call ((t (:foreground "#7c6fe5", :underline t))))
-;; '(js2-function-param ((t (:foreground "#6edcbd"))))
-
 
 ;;; ui.el ends here
