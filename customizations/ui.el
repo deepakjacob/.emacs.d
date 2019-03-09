@@ -15,23 +15,44 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'jd-pencil t)
+(load-theme 'sanityinc-tomorrow-bright t)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 
 ;; regular and unicode font setting
-(set-face-attribute 'default t :font "Roboto Mono for powerline")
+;;(set-face-attribute 'default t :font "-*-Source Code Pro-semibold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-face-attribute 'default t :font "SF Monoa")
 ;; (set-fontset-font t 'unicode "Fira Mono for Powerline" nil 'prepend)
+
+;;
+;; (set-face-attribute 'default nil
+                    ;; :family "Andale Mono"
+                    ;; :height 133
+                    ;; :weight 'medium
+                    ;; :width 'condensed)
+
+;; (add-to-list 'default-frame-alist '(font . "-*-SF Mono-semibold-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
+;;(add-to-list 'default-frame-alist '(font . "-*-Andale Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 130)
+(add-to-list 'default-frame-alist
+             '(font . "Andale Mono-15"))
+;; (set-face-attribute 'default nil :height 140)
+(setq line-spacing 0.1)
+(set-face-bold-p 'bold nil)
+
 (set-face-attribute 'fringe nil :background nil)
+;;
+;; (mapc
+ ;; (lambda (face)
+   ;; (set-face-attribute face nil :weight 'normal :underline nil))
+ ;; (face-list))
 
 ;; full path in title bar
 ;; (setq frame-title-format "%b (%f)")
 (setq frame-title-format nil)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
 

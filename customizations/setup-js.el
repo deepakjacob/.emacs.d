@@ -45,11 +45,15 @@
   :ensure t
   )
 
+;;(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+;;(add-hook 'js2-mode-hook 'prettier-js-mode)
+;;(add-hook 'web-mode-hook 'prettier-js-mode)
+
 
 ;; (eval-after-load 'js-mode
-	;; '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+;; '(add-hook 'js-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
 
 ;; (eval-after-load 'js2-mode
-  ;; '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+;; '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
 
 ;;; setup-js.el ends here
