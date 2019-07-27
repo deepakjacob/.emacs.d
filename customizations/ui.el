@@ -15,29 +15,35 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'spacemacs-dark t)
+(load-theme 'darkokai t)
+;; (load-theme 'seti)
+;; (zerodark-setup-modeline-format)
 
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 
-(normal-erase-is-backspace-mode 1)
+(normal-erase-is-backspace-mode +1)
 
 ;; regular and unicode font setting
-(set-face-attribute 'default nil
-                    :family "Source Code Pro"
-                    :height 130
-                    :weight 'normal
-                    :width 'normal)
+
+;;
+(set-face-attribute 'default nil :family  "Inconsolata for Powerline" :height 150 :weight 'medium :width 'normal)
+
+;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+
 (set-face-attribute 'fringe nil :background nil)
 (set-face-bold 'bold nil)
+(setq ns-use-proxy-icon nil)
+(setq frame-title-format nil)
 
 ;; full path in title bar
-;; (setq frame-title-format "%b (%f)")
-(setq frame-title-format nil)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+ (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 80))
+;; (setq frame-title-format "%b (%f)")
+;; (setq frame-title-format nil)
+;; new changes end
 
 ;; assuming you are using a dark theme
 ;; no bell
@@ -61,7 +67,7 @@
   :config
   (setq-default fci-always-use-textual-rule nil)
   (setq-default fci-rule-color "black")
-  (setq-default fci-rule-column 100)
+  (setq-default fci-rule-column 80)
   (setq-default fci-rule-use-dashes nil)
   (setq-default fci-rule-width 1)
   )
@@ -107,4 +113,6 @@
   (global-page-break-lines-mode t)
 )
 
+
+(add-hook 'rjsx-mode-hook 'prettify-symbols-mode)
 ;;; ui.el ends here
