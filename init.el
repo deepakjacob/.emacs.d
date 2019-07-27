@@ -6,7 +6,7 @@
 ;;; Code:
 
 ;; Produce backtraces when errors occur
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (let ((minver "24.4"))
   (when (version< emacs-version minver)
@@ -125,6 +125,7 @@
 
     ;; syntax themes
     doom-themes
+
     spacemacs-theme
 
     ;; highlight symbols
@@ -191,6 +192,12 @@
 
     dockerfile-mode
 
+    apropospriate-theme
+
+    auto-complete
+
+    go-autocomplete
+
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -221,6 +228,8 @@
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
+(if (fboundp 'mac-auto-operator-composition-mode)
+    (mac-auto-operator-composition-mode))
 ;;;;
 ;; Customization
 ;;;
@@ -246,7 +255,7 @@
 (load "editing.el")
 
 ;; Hard-to-categorize customizations
-(load "misc.el")
+;; (load "misc.el")
 
 ;; For editing lisps
 (load "elisp-editing.el")
@@ -264,6 +273,18 @@
 (load "setup-clojure.el")
 
 (load "setup-go.el")
+
+  ;; (use-package awesome-tab
+  ;; :load-path "vendor/awesome-tab"
+  ;; :config
+  ;; (setq-default awesome-tab-style "bar")
+  ;; (setq awesome-tab-label-fixed-length 30)
+  ;; (awesome-tab-mode t)
+  ;; )
+
+;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-libvterm")
+
+;; (require 'vterm)
 
 
 ;;; init ends here

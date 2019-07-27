@@ -29,7 +29,15 @@
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell
 (when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
+
+(require 'auto-complete)
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+
 
 ;; make backup to a designated dir, mirroring the full path
 (defun my-backup-file-name (fpath)
