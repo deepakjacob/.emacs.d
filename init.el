@@ -36,6 +36,8 @@
 
 (add-to-list 'package-archives
              '("melpa stable" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("melpa org" . "http://melpa.org/packages/") t)
 
 
 ;; Load and activate emacs packages. Do this first so that the
@@ -60,14 +62,14 @@
 
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
-    clojure-mode
+    ;;clojure-mode
 
     ;; extra syntax highlighting for clojure
-    clojure-mode-extra-font-locking
+    ;;clojure-mode-extra-font-locking
 
     ;; integration with a Clojure REPL
     ;; https://github.com/clojure-emacs/cider
-    cider
+    ;;cider
 
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer
@@ -167,7 +169,7 @@
 
     ;; Emacs Polyglot: an Emacs LSP client that stays out of your way:
 
-    eglot
+    ;;eglot
 
 
     doom-modeline
@@ -197,6 +199,8 @@
     auto-complete
 
     go-autocomplete
+
+    ;; treemacs
 
     ))
 
@@ -270,21 +274,12 @@
 ;; code formatting
 (load "prettier-js.el")
 
-(load "setup-clojure.el")
+;; (load "setup-clojure.el")
 
 (load "setup-go.el")
 
-  ;; (use-package awesome-tab
-  ;; :load-path "vendor/awesome-tab"
-  ;; :config
-  ;; (setq-default awesome-tab-style "bar")
-  ;; (setq awesome-tab-label-fixed-length 30)
-  ;; (awesome-tab-mode t)
-  ;; )
+;; (load "treemacs.el")
 
-;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-libvterm")
-
-;; (require 'vterm)
 
 
 ;;; init ends here
