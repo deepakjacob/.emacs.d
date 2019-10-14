@@ -15,7 +15,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-one t)
+(load-theme 'cloud t)
 ;; (load-theme 'seti)
 ;; (zerodark-setup-modeline-format)
 
@@ -28,7 +28,7 @@
 ;; regular and unicode font setting
 
 ;;
-(set-face-attribute 'default nil :family  "Fira Code" :height 130 :weight 'medium :width 'normal)
+(set-face-attribute 'default nil :family  "NanumgothicCoding" :height 170 :weight 'medium :width 'normal)
 
 ;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
@@ -38,9 +38,9 @@
 (setq frame-title-format nil)
 
 ;; full path in title bar
- (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(95 . 80))
+(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
 ;; (setq frame-title-format "%b (%f)")
 ;; (setq frame-title-format nil)
 ;; new changes end

@@ -271,6 +271,8 @@
 
 (load "setup-js.el")
 
+(load "setup-ts.el")
+
 ;; code formatting
 (load "prettier-js.el")
 
