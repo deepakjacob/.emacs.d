@@ -15,7 +15,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'cloud t)
+(load-theme 'doom-one t)
 ;; (load-theme 'seti)
 ;; (zerodark-setup-modeline-format)
 
