@@ -28,7 +28,7 @@
 ;; regular and unicode font setting
 
 ;;
-(set-face-attribute 'default nil :family  "NanumgothicCoding" :height 170 :weight 'medium :width 'normal)
+(set-face-attribute 'default nil :family  "Fira Code" :height 150 :weight 'medium :width 'normal)
 
 ;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
@@ -38,9 +38,9 @@
 (setq frame-title-format nil)
 
 ;; full path in title bar
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+(set-frame-parameter (selected-frame) 'alpha '(98 . 97))
 ;; (setq frame-title-format "%b (%f)")
 ;; (setq frame-title-format nil)
 ;; new changes end

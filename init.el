@@ -200,6 +200,8 @@
 
     go-autocomplete
 
+    typescript-mode
+
     ;; treemacs
 
     ))
