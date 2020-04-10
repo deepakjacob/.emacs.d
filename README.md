@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # .emacs.d
 
 ### Installation 
@@ -11,4 +10,3 @@
  - $ emacsclient --alternate-editor='' -c . &
 =======
 
->>>>>>> 8e1e905850a3285d20f3b75130c896c5cabf682d
