@@ -18,13 +18,14 @@
 (setq inhibit-startup-message t)
 
 
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
+;;
+;;(use-package flycheck
+;;  :ensure t
+;;  :init (global-flycheck-mode))
 
-(eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
+;;(eval-after-load 'flycheck
+;;  '(custom-set-variables
+;;    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
 
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell

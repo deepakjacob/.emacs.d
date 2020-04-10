@@ -13,9 +13,9 @@
  (setq default-frame-alist
        '((top . 10) (left . 275) (width . 115) (height . 90)))
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'doom-one t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;;(add-to-list 'load-path "~/.emacs.d/themes")
+;;(load-theme 'doom-one t)
 ;; (load-theme 'seti)
 ;; (zerodark-setup-modeline-format)
 
@@ -28,12 +28,12 @@
 ;; regular and unicode font setting
 
 ;;
-(set-face-attribute 'default nil :family  "Fira Code" :height 150 :weight 'medium :width 'normal)
+;; (set-face-attribute 'default nil :family  "Roboto Mono for Powerline" :height 150 :weight 'medium :width 'normal)
 
-;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-frame-font "-*-SF Mono-regular-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
 (set-face-attribute 'fringe nil :background nil)
-(set-face-bold 'bold nil)
+;; (set-face-bold 'bold nil)
 (setq ns-use-proxy-icon t)
 (setq frame-title-format nil)
 
