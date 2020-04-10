@@ -8,5 +8,4 @@
 
 ### Run the GUI using emacsclient for fast startup
  - $ emacsclient --alternate-editor='' -c . &
-=======
 
