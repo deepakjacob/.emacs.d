@@ -180,7 +180,7 @@
 
     ace-jump-mode
 
-    company-tern
+    ;; company-tern
 
     xref-js2
 

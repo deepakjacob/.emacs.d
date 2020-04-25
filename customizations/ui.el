@@ -15,7 +15,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'spacemacs-dark t)
+(load-theme 'doom-one t)
 ;; (load-theme 'seti)
 ;;(load-theme 'doom-one)
 ;; (zerodark-setup-modeline-format)
@@ -29,7 +29,7 @@
 ;; regular and unicode font setting
 
 ;;
-(set-face-attribute 'default nil :family  "Source Code Pro" :height 130 :weight 'medium :width 'normal)
+(set-face-attribute 'default nil :family  "Roboto Mono for Powerline" :height 140 :weight 'medium :width 'normal)
 
 ;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
