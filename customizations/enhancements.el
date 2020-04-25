@@ -17,33 +17,18 @@
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
 
-
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
-(eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
-
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
 
-(require 'auto-complete)
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
-
-
 
 ;; make backup to a designated dir, mirroring the full path
 (defun my-backup-file-name (fpath)
   "Return a new file path of a given file path - specfified by FPATH.
 If the new path's directories does not exist, create them."
-  (let* ((backupRootDir "~/.emacs.d/backup/")
+  (let* ((backupRootDir "~/Development/.emacs.d/file-backups/")
          (filePath (replace-regexp-in-string "[A-Za-z]:" "" fpath )) ; remove Windows driver letter in path, for example, “C:”
          (backupFilePath (replace-regexp-in-string "//" "/" (concat backupRootDir filePath "~"))))
     (make-directory (file-name-directory backupFilePath) (file-name-directory backupFilePath)) backupFilePath))

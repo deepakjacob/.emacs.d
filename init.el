@@ -57,154 +57,115 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(;; makes handling lisp expressions much, much easier
-    ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
-    paredit
+  ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
+  paredit
 
-    ;; key bindings and code colorization for Clojure
-    ;; https://github.com/clojure-emacs/clojure-mode
-    ;;clojure-mode
+  ;; key bindings and code colorization for Clojure
+  ;; https://github.com/clojure-emacs/clojure-mode
+  ;;clojure-mode
 
-    ;; extra syntax highlighting for clojure
-    ;;clojure-mode-extra-font-locking
+  ;; extra syntax highlighting for clojure
+  ;;clojure-mode-extra-font-locking
 
-    ;; integration with a Clojure REPL
-    ;; https://github.com/clojure-emacs/cider
-    ;;cider
+  ;; integration with a Clojure REPL
+  ;; https://github.com/clojure-emacs/cider
+  ;;cider
 
-    ;; Enhances M-x to allow easier execution of commands. Provides
-    ;; a filterable list of possible commands in the minibuffer
-    ;; http://www.emacswiki.org/emacs/Smex
-    smex
+  ;; Enhances M-x to allow easier execution of commands. Provides
+  ;; a filterable list of possible commands in the minibuffer
+  ;; http://www.emacswiki.org/emacs/Smex
+  smex
 
-    ;; project navigation
-    projectile
+  projectile
 
-    ;; colorful parenthesis matching
-    rainbow-delimiters
+  rainbow-delimiters
 
-    ;; edit html tags like sexps
-    tagedit
+  tagedit
 
-    ;; git integration
-    magit
+  magit
 
-    ;; a collection of Ivy-enhanced versions of common Emacs commands.
-    counsel
+  counsel
 
-    ;; for general completion
-    ivy
+  ivy
 
-    ;; for navigtion
-    swiper
+  swiper
 
-    ;; for react editing support
-    rjsx-mode
+  rjsx-mode
 
-    ;; for json
-    json-mode
+  json-mode
 
-    ;; use C-x-o to switch between windows within a frame
-    windmove
+  windmove
 
-    ;; expand-region use C-=
-    expand-region
+  expand-region
 
-    ;;jump to definition of variable and functions
-    dumb-jump
+  dumb-jump
 
-    ;;the project file explorer
-    neotree
+  neotree
 
-    page-break-lines
+  page-break-lines
 
-    ;; for auto completion
-    company
+  company
 
-    multiple-cursors
+  multiple-cursors
 
-    ;; refactor javascript or node js programs
-    js2-refactor
+  doom-themes
 
-    ;; syntax themes
-    doom-themes
+  spacemacs-theme
 
-    spacemacs-theme
+  highlight-symbol
 
-    ;; highlight symbols
-    highlight-symbol
+  use-package
 
-    ;; easy loading of packages
-    use-package
+  guide-key
 
-    ;; display keyboard shortcuts
-    guide-key
+  browse-kill-ring
 
-    ;; standard way to browse and select the first couple of kill ring items
-    browse-kill-ring
+  move-dup
 
-    ;; duplicate lines above / below
-    move-dup
+  winum
 
-    ;; window switching
-    winum
+  change-inner
 
-    ;; vim style tet deletion within '',"", ``, [], {}, () etc
-    change-inner
+  markdown-mode
 
-    ;; markdown mode
-    markdown-mode
+  smartparens
 
-    ;; insert parenthesis automatically
-    smartparens
+  focus
 
-    focus
+  zoom
 
-    zoom
+  fill-column-indicator
 
-    ;; rulers for source code length
-    fill-column-indicator
+  easy-kill
 
-    ;; easy-kill is a drop-in replacement for kill-ring-save
-    easy-kill
+  ;; Emacs Polyglot: an Emacs LSP client that stays out of your way:
 
-    ;; Emacs Polyglot: an Emacs LSP client that stays out of your way:
+  ;;eglot
 
-    ;;eglot
+  doom-modeline
 
+  highlight-indent-guides
 
-    doom-modeline
+  ace-jump-mode
 
-    highlight-indent-guides
+  eslint-fix
 
-    flycheck
+  go-mode
 
-    ace-jump-mode
+  dockerfile-mode
 
-    ;; company-tern
+  apropospriate-theme
 
-    xref-js2
+  typescript-mode
 
-    eslint-fix
+  lsp-mode
 
-    go-mode
+  lsp-ui
 
-    go-autocomplete
+  lsp-ivy
 
-    go-guru
-
-    dockerfile-mode
-
-    apropospriate-theme
-
-    auto-complete
-
-    go-autocomplete
-
-    typescript-mode
-
-    ;; treemacs
-
-    ))
+  lsp-treemacs
+  ))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -260,9 +221,6 @@
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
 
-;; Hard-to-categorize customizations
-;; (load "misc.el")
-
 ;; For editing lisps
 (load "elisp-editing.el")
 
@@ -271,19 +229,10 @@
 
 (load "window.el")
 
-(load "setup-js.el")
+(require 'lsp-mode)
+(add-hook 'prog-mode-hook #'lsp)
 
-(load "setup-ts.el")
-
-;; code formatting
-(load "prettier-js.el")
-
-;; (load "setup-clojure.el")
-
-(load "setup-go.el")
-
-;; (load "treemacs.el")
-
-
+(add-hook 'before-save-hook #'lsp-format-buffer)
+(add-hook 'before-save-hook #'lsp-organize-imports)
 
 ;;; init ends here

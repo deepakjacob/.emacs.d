@@ -114,6 +114,4 @@
   (global-page-break-lines-mode t)
 )
 
-
-(add-hook 'rjsx-mode-hook 'prettify-symbols-mode)
 ;;; ui.el ends here
