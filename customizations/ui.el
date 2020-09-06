@@ -11,7 +11,7 @@
 
 ;; window poisition, width and height settings
  (setq default-frame-alist
-       '((top . 10) (left . 275) (width . 75) (height . 90)))
+       '((top . 10) (left . 275) (width . 100) (height . 90)))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
@@ -29,7 +29,7 @@
 ;; regular and unicode font setting
 
 ;;
-(set-face-attribute 'default nil :family  "Roboto Mono for Powerline" :height 140 :weight 'medium :width 'normal)
+(set-face-attribute 'default nil :family  "Source Code Pro for Powerline" :height 130 :weight 'medium :width 'normal)
 
 ;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
@@ -113,5 +113,11 @@
   :config
   (global-page-break-lines-mode t)
 )
+
+
+(require 'typescript-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+
 
 ;;; ui.el ends here

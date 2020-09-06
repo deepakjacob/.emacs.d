@@ -193,7 +193,9 @@
 ;;
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
-(add-to-list 'load-path "~/.emacs.d/vendor")
+(add-to-list 'load-path  "~/.emacs.d/vendor")
+;; (add-to-list 'load-path  "~/.fonts/fira-code.el")
+;; (add-to-list 'load-path  "~/.fonts/fira-code-data.el")
 
 (if (fboundp 'mac-auto-operator-composition-mode)
     (mac-auto-operator-composition-mode))
@@ -231,8 +233,12 @@
 
 (require 'lsp-mode)
 (add-hook 'prog-mode-hook #'lsp)
+;;(add-hook 'prog-mode-hook #'fira-code-mode)
 
 (add-hook 'before-save-hook #'lsp-format-buffer)
 (add-hook 'before-save-hook #'lsp-organize-imports)
+
+(setq ns-function-modifier 'super)  ; make Fn key do Hyper
+
 
 ;;; init ends here
