@@ -5,15 +5,7 @@
 (when (version< emacs-version "25.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
-;;----------------------------------------------------------------------------
-;; Adjust garbage collection thresholds during startup, and thereafter
-;;----------------------------------------------------------------------------
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
-
+(setq gc-cons-threshold (* 100 1024 1024))
 
 ;; Define package repositories
 (require 'package)
@@ -70,6 +62,15 @@
   doom-modeline
   highlight-indent-guides
   ace-jump-mode
+  page-break-lines
+
+  go-mode
+  lsp-mode
+  lsp-ui
+  flycheck
+  lsp-ivy
+  dap-mode
+  company
   ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -92,16 +93,13 @@
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 (load "startup.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(ace-jump-mode highlight-indent-guides doom-modeline easy-kill fill-column-indicator zoom focus smartparens markdown-mode change-inner winum move-dup browse-kill-ring guide-key use-package highlight-symbol spacemacs-theme doom-themes multiple-cursors page-break-lines neotree dumb-jump expand-region counsel magit tagedit rainbow-delimiters projectile smex exec-path-from-shell)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(load "ui.el")
+(load "shortcuts.el")
+(load "golang.el")
+;; TODO find a good place to place this
+;; Sets up exec-path-from shell
+;; https://github.com/purcell/exec-path-from-shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
+(add-hook 'before-save-hook 'delete-trailing-whitespace)

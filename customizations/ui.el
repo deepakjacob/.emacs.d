@@ -46,7 +46,7 @@
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 (normal-erase-is-backspace-mode +1)
-(load-theme 'doom-one t)
+(load-theme 'spacemacs-light t)
 ;; These settings relate to how emacs interacts with your operating system
 ;; makes killing/yanking interact with the clipboard
 (setq-default
@@ -57,11 +57,11 @@
 
 
 ;; Following should not be enabled due to custom header
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :config
-;;   (doom-modeline-mode 1)
-;;   (setq doom-modeline-icon nil))
+(use-package doom-modeline
+  :ensure t
+  :config
+  (doom-modeline-mode 1)
+  (setq doom-modeline-icon nil))
 
 ;; Turn ^L into nice <hr>
 (use-package page-break-lines
@@ -97,29 +97,6 @@
   (setq-default highlight-indent-guides-character 124)
   )
 
-(define-key mode-line-major-mode-keymap [header-line]
-    (lookup-key mode-line-major-mode-keymap [mode-line])
-)
-
-(defun mode-line-render (left right)
-    (let* ((available-width (- (window-width) (length left) )))
-        (format (format "%%s %%%ds" available-width) left right)))
-(setq-default mode-line-format
-    '((:eval (mode-line-render
-        (format-mode-line (list
-            (propertize "☰" 'face `(:inherit mode-line-buffer-id)
-                'help-echo "Mode(s) menu"
-                'mouse-face 'mode-line-highlight
-                'local-map   mode-line-major-mode-keymap)
-            " %b "
-            (if (and buffer-file-name (buffer-modified-p))
-                (propertize "(modified)" 'face `(:inherit face-faded)))))
-       (format-mode-line (propertize "%4l:%2c  " 'face `(:inherit face-faded)))))))
-
-
-;; Comment if you want to keep the modeline at the bottom
-(setq-default header-line-format mode-line-format)
-(setq-default mode-line-format nil)
 
               
 ;; Vertical window divider
