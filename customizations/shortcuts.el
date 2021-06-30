@@ -1,28 +1,73 @@
-;;; editing.el --- editing goodies
-;;; Commentary:
 
-;;; Code:
 (setq ns-command-modifier 'meta)
 (setq mac-option-modifier 'meta)
 
-(show-paren-mode 1)
-(global-hl-line-mode 1)
 
-(electric-pair-mode)
-(electric-indent-mode)
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
+
+;; Use swiper and ivy mode for completion
+;; Use swiper for navigation
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+(setq enable-recursive-minibuffers t)
+
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "<f6>") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-x l") 'counsel-locate)
+(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+
+;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; projectile everywhere!
+(projectile-mode)
+;; projectile defect fix
+(setq projectile-mode-line '(:eval (format " Projectile[%s]" (projectile-project-name))))
+;; use ivy as the completion backend for projectile
+(setq projectile-completion-system 'ivy)
+
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+
+;; ignore node_modules folder
+(add-to-list 'projectile-globally-ignored-directories "node_modules")
+(add-to-list 'projectile-globally-ignored-directories "client/x-app/node_modules")
+(add-to-list 'projectile-globally-ignored-directories "**/*/node_modules")
+(add-to-list 'projectile-globally-ignored-directories "functions/node_modules")
+(add-to-list 'projectile-globally-ignored-directories "src/mocks/node_modules")
+(add-to-list 'projectile-globally-ignored-directories "build/*")
+(add-to-list 'projectile-globally-ignored-directories "public/static/*")
+
+
+;; kill current buffer
+(defun custom/kill-this-buffer ()
+  (interactive) (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'custom/kill-this-buffer)
+
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-x C-x") 'execute-extended-command)
 
 (global-set-key (kbd "C-c s") 'surround-with)
 
-(setq-default tab-width 2)
-(setq auto-save-default nil)
-(setq-default indent-tabs-mode nil)
-
-(add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 
 (global-set-key (kbd "M-Y") 'browse-kill-ring)
-(push 'browse-kill-ring-mode page-break-lines-modes)
+;; TODO find out why this is not working
+;; (push 'browse-kill-ring-mode page-break-lines-modes)
+;; (turn-on-page-break-lines-mode)
 
 (require 'move-dup)
 (global-set-key [M-S-up] 'md/move-lines-up)
@@ -33,6 +78,19 @@
 
 (global-set-key "\C-cy" '(lambda () (interactive) (popup-menu 'yank-menu)))
 
+(use-package neotree
+  :defer t
+  :bind
+  (("C-c n" . neotree-toggle)
+  ("C-c i" . neotree-dir)
+  ("C-c f" . neotree-find))
+  :config
+  (setq-default neo-theme (quote ascii))
+  (setq-default neo-window-fixed-size nil)
+  (setq-default neo-window-position 'right)
+  (setq-default neo-window-width 45)
+  (setq-default doom-neotree-folder-size 1.0)
+  )
 
 (use-package magit
   :ensure t
@@ -70,7 +128,7 @@
   ("M-/" . hippie-expand))
 
 (use-package change-inner
-  :bind (("M-i"     . change-inner)
+  :bind (("M-i" . change-inner)
          ("M-o" . change-outer)))
 
 (use-package easy-kill
@@ -182,4 +240,3 @@ TEXT-BEGIN / TEXT-END are start tag and end tag respectively"
 (global-set-key (kbd "C-c x") 'jd/reformat-xml)
 
 
-;;; editing ends here

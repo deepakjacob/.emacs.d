@@ -1,12 +1,3 @@
-;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
-;;; Commentary:
-;;; init.el --- Initialization file for Emacs
-;;; Commentary: Emacs Startup File --- this file bootstraps the configuration,
-
-;;; Code:
-
-;; Produce backtraces when errors occur
-;; (setq debug-on-error t)
 
 (let ((minver "24.4"))
   (when (version< emacs-version minver)
@@ -14,30 +5,12 @@
 (when (version< emacs-version "25.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
-;;----------------------------------------------------------------------------
-;; Adjust garbage collection thresholds during startup, and thereafter
-;;----------------------------------------------------------------------------
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
-
-
+(setq gc-cons-threshold (* 100 1024 1024))
 
 ;; Define package repositories
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(add-to-list 'package-archives
-             '("melpa stable" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("melpa org" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 
 ;; Load and activate emacs packages. Do this first so that the
@@ -56,155 +29,49 @@
 ;; manually with M-x package-install
 ;; Add in your own as you wish:
 (defvar my-packages
-  '(;; makes handling lisp expressions much, much easier
-    ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
-    paredit
+  '(
+  smex
+  projectile
+  rainbow-delimiters
+  tagedit
+  magit
+  counsel
+  ivy
+  swiper
+  windmove
+  expand-region
+  dumb-jump
+  neotree
+  page-break-lines
+  multiple-cursors
+  doom-themes
+  spacemacs-theme
+  highlight-symbol
+  use-package
+  guide-key
+  browse-kill-ring
+  move-dup
+  winum
+  change-inner
+  markdown-mode
+  smartparens
+  focus
+  zoom
+  fill-column-indicator
+  easy-kill
+  doom-modeline
+  highlight-indent-guides
+  ace-jump-mode
+  page-break-lines
 
-    ;; key bindings and code colorization for Clojure
-    ;; https://github.com/clojure-emacs/clojure-mode
-    ;;clojure-mode
-
-    ;; extra syntax highlighting for clojure
-    ;;clojure-mode-extra-font-locking
-
-    ;; integration with a Clojure REPL
-    ;; https://github.com/clojure-emacs/cider
-    ;;cider
-
-    ;; Enhances M-x to allow easier execution of commands. Provides
-    ;; a filterable list of possible commands in the minibuffer
-    ;; http://www.emacswiki.org/emacs/Smex
-    smex
-
-    ;; project navigation
-    projectile
-
-    ;; colorful parenthesis matching
-    rainbow-delimiters
-
-    ;; edit html tags like sexps
-    tagedit
-
-    ;; git integration
-    magit
-
-    ;; a collection of Ivy-enhanced versions of common Emacs commands.
-    counsel
-
-    ;; for general completion
-    ivy
-
-    ;; for navigtion
-    swiper
-
-    ;; for react editing support
-    rjsx-mode
-
-    ;; for json
-    json-mode
-
-    ;; use C-x-o to switch between windows within a frame
-    windmove
-
-    ;; expand-region use C-=
-    expand-region
-
-    ;;jump to definition of variable and functions
-    dumb-jump
-
-    ;;the project file explorer
-    neotree
-
-    page-break-lines
-
-    ;; for auto completion
-    company
-
-    multiple-cursors
-
-    ;; refactor javascript or node js programs
-    js2-refactor
-
-    ;; syntax themes
-    doom-themes
-
-    spacemacs-theme
-
-    ;; highlight symbols
-    highlight-symbol
-
-    ;; easy loading of packages
-    use-package
-
-    ;; display keyboard shortcuts
-    guide-key
-
-    ;; standard way to browse and select the first couple of kill ring items
-    browse-kill-ring
-
-    ;; duplicate lines above / below
-    move-dup
-
-    ;; window switching
-    winum
-
-    ;; vim style tet deletion within '',"", ``, [], {}, () etc
-    change-inner
-
-    ;; markdown mode
-    markdown-mode
-
-    ;; insert parenthesis automatically
-    smartparens
-
-    focus
-
-    zoom
-
-    ;; rulers for source code length
-    fill-column-indicator
-
-    ;; easy-kill is a drop-in replacement for kill-ring-save
-    easy-kill
-
-    ;; Emacs Polyglot: an Emacs LSP client that stays out of your way:
-
-    ;;eglot
-
-
-    doom-modeline
-
-    highlight-indent-guides
-
-    flycheck
-
-    ace-jump-mode
-
-    ;; company-tern
-
-    xref-js2
-
-    eslint-fix
-
-    go-mode
-
-    go-autocomplete
-
-    go-guru
-
-    dockerfile-mode
-
-    apropospriate-theme
-
-    auto-complete
-
-    go-autocomplete
-
-    typescript-mode
-
-    ;; treemacs
-
-    ))
+  go-mode
+  lsp-mode
+  lsp-ui
+  flycheck
+  lsp-ivy
+  dap-mode
+  company
+  ))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -221,69 +88,18 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; Place downloaded elisp files in ~/.emacs.d/vendor. You'll then be able
-;; to load them.
-;;
-;; For example, if you download yaml-mode.el to ~/.emacs.d/vendor,
-;; then you can add the following code to this file:
-;;
-;; (require 'yaml-mode)
-;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-;;
-;; Adding this code will make Emacs enter yaml mode whenever you open
-;; a .yml file
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
-(if (fboundp 'mac-auto-operator-composition-mode)
-    (mac-auto-operator-composition-mode))
-;;;;
-;; Customization
-;;;
-;;;;
-;;;
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file 'no-error 'no-message)
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
-
-;; These customizations make it easier for you to navigate files,
-;; switch buffers, and choose options from the minibuffer.
-(load "navigation.el")
-
-;; These customizations change the way emacs looks and disable/enable
-;; some user interface elements
+(load "startup.el")
 (load "ui.el")
-
-;; These customizations make editing a bit nicer.
-(load "editing.el")
-
-;; Hard-to-categorize customizations
-;; (load "misc.el")
-
-;; For editing lisps
-(load "elisp-editing.el")
-
-;;; enhancements to buffers eg, flycheck mode
-(load "enhancements.el")
-
-(load "window.el")
-
-(load "setup-js.el")
-
-(load "setup-ts.el")
-
-;; code formatting
-(load "prettier-js.el")
-
-;; (load "setup-clojure.el")
-
-(load "setup-go.el")
-
-;; (load "treemacs.el")
-
-
-
-;;; init ends here
+(load "shortcuts.el")
+(load "golang.el")
+;; TODO find a good place to place this
+;; Sets up exec-path-from shell
+;; https://github.com/purcell/exec-path-from-shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
