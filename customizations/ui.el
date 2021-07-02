@@ -46,7 +46,7 @@
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 (normal-erase-is-backspace-mode +1)
-(load-theme 'spacemacs-light t)
+(load-theme 'doom-oceanic-next t)
 ;; These settings relate to how emacs interacts with your operating system
 ;; makes killing/yanking interact with the clipboard
 (setq-default
@@ -98,11 +98,8 @@
   )
 
 
-              
+
 ;; Vertical window divider
 (setq window-divider-default-right-width 3)
 (setq window-divider-default-places 'right-only)
 (window-divider-mode)
-
-
-
