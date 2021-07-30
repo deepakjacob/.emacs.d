@@ -1,7 +1,7 @@
 (require 'lsp-mode)
 (add-hook 'go-mode-hook #'lsp-deferred)
 
-(define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
+(define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
 ;; '(lsp-enable-snippet nil)
 ;; '(lsp-ui-doc-delay 1)
 ;; '(lsp-ui-doc-max-height 8)

@@ -71,6 +71,9 @@
   lsp-ivy
   dap-mode
   company
+
+  god-mode
+
   ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -96,6 +99,7 @@
 (load "ui.el")
 (load "shortcuts.el")
 (load "golang.el")
+(load "god.el")
 ;; TODO find a good place to place this
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell

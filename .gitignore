@@ -22,3 +22,5 @@ ac-comphist.dat
 /url/cache/jacobdeepak/
 .lsp-session-v1
 custom.el
+/.dap-breakpoints
+/.cache/
