@@ -132,6 +132,7 @@
          ("M-o" . change-outer)))
 
 (use-package easy-kill
+
   :ensure t
   :config
   (global-set-key [remap kill-ring-save] #'easy-kill)
@@ -141,32 +142,12 @@
 (use-package expand-region
   :bind (("C-=" . 'er/expand-region)))
 
- (use-package ace-jump-buffer
-    :ensure t
-    :bind
-    ("C-," . ace-jump-buffer))
-;;
-;; ace jump mode major function
-;;
-(autoload
-  'ace-jump-mode
-  "ace-jump-mode"
-  "Emacs quick move minor mode"
-  t)
-;; you can select the key you prefer to
-(define-key global-map (kbd "C-c ,") 'ace-jump-mode)
 
-;;
-;; enable a more powerful jump back function from ace jump mode
-;;
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(use-package avy
+  :ensure t
+  :bind (("C-." . avy-goto-word-or-subword-1)
+         ("C-," . avy-goto-char)
+         ("C-<" . avy-goto-line)))
 
 
 (defun toggle-comment-on-line ()

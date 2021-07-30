@@ -46,7 +46,7 @@
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 (normal-erase-is-backspace-mode +1)
-(load-theme 'doom-oceanic-next t)
+(load-theme 'doom-badger t)
 ;; These settings relate to how emacs interacts with your operating system
 ;; makes killing/yanking interact with the clipboard
 (setq-default
@@ -132,11 +132,13 @@
 (defun my-god-mode-update-mode-line ()
   (cond
    (god-local-mode
-    (set-face-attribute 'mode-line nil :foreground "#604000" :background "#fff29a")
-    (set-face-attribute 'mode-line-inactive nil :foreground "#3f3000" :background "#fff3da"))
+   ;; (set-face-attribute 'mode-line nil :foreground "#604000" :background "#fff29a")
+    ;; (set-face-attribute 'mode-line-inactive nil :foreground "#3f3000" :background "#fff3da")
+    )
    (t
-    (set-face-attribute 'mode-line nil :foreground "#0a0a0a" :background "#d7d7d7")
-    (set-face-attribute 'mode-line-inactive nil	:foreground "#404148" :background "#efefef"))))
+    ;; (set-face-attribute 'mode-line nil :foreground "#0a0a0a" :background "#d7d7d7")
+    ;; (set-face-attribute 'mode-line-inactive nil	:foreground "#404148" :background "#efefef")
+    )))
 
 
 ;; Vertical window divider

@@ -61,7 +61,7 @@
   easy-kill
   doom-modeline
   highlight-indent-guides
-  ace-jump-mode
+  avy
   page-break-lines
 
   go-mode
