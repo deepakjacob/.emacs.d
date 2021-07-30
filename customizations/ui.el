@@ -97,6 +97,46 @@
   (setq-default highlight-indent-guides-character 124)
   )
 
+(use-package hungry-delete
+  :ensure t
+  :bind(
+        ("C-c b" . 'hungry-delete-backward)
+        ("C-c a" . 'hungry-delete-forward)))
+
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode)
+  :config
+  (which-key-setup-side-window-right-bottom)
+  (setq which-key-sort-order 'which-key-key-order-alpha
+    which-key-side-window-max-width 0.50
+    which-key-idle-delay 0.10)
+  :diminish which-key-mode)
+
+(provide 'init-which-key)
+
+(use-package god-mode
+  :ensure t
+  :config
+  (global-set-key (kbd "<escape>") #'god-local-mode)
+  (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
+  (add-hook 'post-command-hook 'my-god-mode-update-mode-line)
+  (which-key-enable-god-mode-support))
+
+;; You can change the cursor style to visually indicate
+;; whether God mode is active as follows:
+(defun my-god-mode-update-cursor-type () (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
+
+;; mode-line highlight
+(defun my-god-mode-update-mode-line ()
+  (cond
+   (god-local-mode
+    (set-face-attribute 'mode-line nil :foreground "#604000" :background "#fff29a")
+    (set-face-attribute 'mode-line-inactive nil :foreground "#3f3000" :background "#fff3da"))
+   (t
+    (set-face-attribute 'mode-line nil :foreground "#0a0a0a" :background "#d7d7d7")
+    (set-face-attribute 'mode-line-inactive nil	:foreground "#404148" :background "#efefef"))))
 
 
 ;; Vertical window divider

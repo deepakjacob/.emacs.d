@@ -99,9 +99,7 @@
 (load "ui.el")
 (load "shortcuts.el")
 (load "lspmode.el")
-(load "which.el")
-(load "god.el")
-(load "whitespace.el")
+
 
 ;; TODO find a good place to place this
 ;; Sets up exec-path-from shell

@@ -1,6 +1,6 @@
 ## Work that needs to be done to make emacs beautiful
 
-* use use-package instead of require
+* use use-package instead of require for ivy and other plug-ins
 * more meaningful file splits
 * learn emacs basics so that custom plugins can be written
 
