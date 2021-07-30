@@ -40,7 +40,7 @@
   swiper
   windmove
   expand-region
-  dumb-jump
+
   neotree
   page-break-lines
   multiple-cursors
@@ -48,7 +48,7 @@
   spacemacs-theme
   highlight-symbol
   use-package
-  guide-key
+  which-key
   browse-kill-ring
   move-dup
   winum
@@ -73,7 +73,7 @@
   company
 
   god-mode
-
+  hungry-delete
   ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -98,8 +98,11 @@
 (load "startup.el")
 (load "ui.el")
 (load "shortcuts.el")
-(load "golang.el")
+(load "lspmode.el")
+(load "which.el")
 (load "god.el")
+(load "whitespace.el")
+
 ;; TODO find a good place to place this
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell

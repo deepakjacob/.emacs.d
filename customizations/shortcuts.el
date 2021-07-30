@@ -138,15 +138,6 @@
   (global-set-key [remap mark-sexp] #'easy-mark)
   (global-set-key [remap mark-word] #'easy-mark))
 
-(use-package dumb-jump
-  :bind (("M-g o" . dumb-jump-go-other-window)
-         ("M-g j" . dumb-jump-go)
-         ("M-g i" . dumb-jump-go-prompt)
-         ("M-g x" . dumb-jump-go-prefer-external)
-         ("M-g z" . dumb-jump-go-prefer-external-other-window))
-  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
-  :ensure)
-
 (use-package expand-region
   :bind (("C-=" . 'er/expand-region)))
 
@@ -163,7 +154,7 @@
   "Emacs quick move minor mode"
   t)
 ;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c ,") 'ace-jump-mode)
 
 ;;
 ;; enable a more powerful jump back function from ace jump mode
@@ -240,29 +231,6 @@ TEXT-BEGIN / TEXT-END are start tag and end tag respectively"
 (global-set-key (kbd "C-c x") 'jd/reformat-xml)
 
 (winum-mode)
-
-;;; provide help on shortcuts
-(require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x 5"
-                                     "C-c ;"
-                                     "C-c C-a"
-                                     "C-c a"
-                                     "C-x n"
-                                     "C-x C-r"
-                                     "C-x r"
-                                     "M-s"
-                                     "C-h"
-                                     "C-x"
-                                     "C-c"
-                                     "C-x 4"
-                                     "C-c ; f"
-                                     "C-c ' f"
-                                     ))
-
-(setq guide-key/recursive-key-sequence-flag t)
-(setq guide-key/popup-window-position 'bottom)
-(add-hook 'after-init-hook 'guide-key-mode)
-
 ;;; arrange two windows side-by-side or up/down fashion
 ;;; initially both will be 50/50 size
 ;;; use shortcut C-x-4-t
