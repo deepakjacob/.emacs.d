@@ -1,25 +1,19 @@
 
-;; Font and frame size
-(set-face-font 'default "Roboto Mono Light 14")
 (setq default-frame-alist
-      (append (list '(width  . 72) '(height . 40)
-                    '(vertical-scroll-bars . nil)
-                    '(internal-border-width . 24)
-                    '(font . "Roboto Mono Light 14"))))
-(set-frame-parameter (selected-frame)
-                     'internal-border-width 24)
-;;
-;;(set-face-attribute 'default nil :family  "Roboto Mono" :height 130 :weight 'medium :width 'normal)
-;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-;;(set-face-bold 'bold nil)
+      (append
+       (list
+        '(width  . 145) '(height . 45)
+        '(vertical-scroll-bars . nil)
+        '(internal-border-width . 24)
+        ;;'(font . "Roboto Mono Light 14")
+        )))
+;;(load-theme 'doom-badger t)
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq ns-use-proxy-icon t)
 (setq frame-title-format nil)
-
-;; full path in title bar
-
-;;(set-frame-parameter (selected-frame) 'alpha '(98 . 97))
-;; (setq frame-title-format "%b (%f)")
-;; (setq frame-title-format nil)
+(set-face-font 'default "Operator Mono Book 14")
+(set-frame-parameter (selected-frame) 'internal-border-width 24)
 ;; Line spacing, can be 0 for code and 1 or 2 for text
 (setq-default line-spacing 0)
 ;; Underline line at descent position, not baseline position
@@ -40,21 +34,10 @@
 (fringe-mode '(0 . 0))
 (set-face-attribute 'fringe nil :background nil)
 
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
 (global-prettify-symbols-mode +1)
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 (normal-erase-is-backspace-mode +1)
-(load-theme 'doom-badger t)
-;; These settings relate to how emacs interacts with your operating system
-;; makes killing/yanking interact with the clipboard
-(setq-default
-   x-select-enable-clipboard t
-   save-interprogram-paste-before-kill t
-   apropos-do-all t
-   )
-
 
 ;; Following should not be enabled due to custom header
 (use-package doom-modeline
@@ -68,8 +51,6 @@
   :ensure t
   :config
   (global-page-break-lines-mode t))
-
-
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
@@ -103,6 +84,7 @@
         ("C-c b" . 'hungry-delete-backward)
         ("C-c a" . 'hungry-delete-forward)))
 
+
 (use-package which-key
   :ensure t
   :init
@@ -120,28 +102,19 @@
   :ensure t
   :config
   (global-set-key (kbd "<escape>") #'god-local-mode)
-  (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
-  (add-hook 'post-command-hook 'my-god-mode-update-mode-line)
+  ;; (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
+  ;; (add-hook 'post-command-hook 'my-god-mode-update-mode-line)
   (which-key-enable-god-mode-support))
-
-;; You can change the cursor style to visually indicate
-;; whether God mode is active as follows:
-(defun my-god-mode-update-cursor-type () (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
-
-;; mode-line highlight
-(defun my-god-mode-update-mode-line ()
-  (cond
-   (god-local-mode
-   ;; (set-face-attribute 'mode-line nil :foreground "#604000" :background "#fff29a")
-    ;; (set-face-attribute 'mode-line-inactive nil :foreground "#3f3000" :background "#fff3da")
-    )
-   (t
-    ;; (set-face-attribute 'mode-line nil :foreground "#0a0a0a" :background "#d7d7d7")
-    ;; (set-face-attribute 'mode-line-inactive nil	:foreground "#404148" :background "#efefef")
-    )))
-
 
 ;; Vertical window divider
 (setq window-divider-default-right-width 3)
 (setq window-divider-default-places 'right-only)
 (window-divider-mode)
+
+
+;; These settings relate to how emacs interacts with your operating system
+;; makes killing/yanking interact with the clipboard
+(setq-default
+   x-select-enable-clipboard t
+   save-interprogram-paste-before-kill t
+   apropos-do-all t)

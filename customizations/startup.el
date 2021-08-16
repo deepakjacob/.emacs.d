@@ -28,7 +28,7 @@
 
 
 
-;; check whats done to uniquify buffers 
+;; check whats done to uniquify buffers
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
@@ -38,12 +38,3 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'no-error 'no-message)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
-
-;; make backup to a designated dir, mirroring the full path
-(defun my-backup-file-name (fpath)
-  "Return a new file path of a given file path - specfified by FPATH.
-If the new path's directories does not exist, create them."
-  (let* ((backupRootDir "~/Development/.emacs.d/file-backups/")
-         (filePath (replace-regexp-in-string "[A-Za-z]:" "" fpath )) ; remove Windows driver letter in path, for example, “C:”
-         (backupFilePath (replace-regexp-in-string "//" "/" (concat backupRootDir filePath "~"))))
-    (make-directory (file-name-directory backupFilePath) (file-name-directory backupFilePath)) backupFilePath))

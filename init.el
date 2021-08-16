@@ -74,6 +74,9 @@
 
   god-mode
   hungry-delete
+
+  typescript-mode
+  rjsx-mode
   ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -108,3 +111,23 @@
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+(use-package smartparens
+  :ensure t
+  :bind (("C-c ;" . 'sp-forward-sexp))
+  :config (smartparens-global-mode))
+
+(use-package rjsx-mode
+   :ensure t
+  :mode (
+         ("\\.jsx\\'" . rjsx-mode)
+           ("\\.tsx\\'" . rjsx-mode)))
+
+
+
+(use-package typescript-mode
+   :ensure t
+  :mode (
+         ("\\.ts\\'" . typescript-mode)
+         ("\\.tjs\\'" . typescript-mode)))

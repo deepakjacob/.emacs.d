@@ -4,12 +4,20 @@
   (setq lsp-keymap-prefix "C-c C-l")
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (go-mode . lsp)
+         (rjsx-mode .lsp)
+         (typescript-mode .lsp)f
          ;;(go-mode . lsp-go-install-save-hooks)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports)
 
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
+  :custom;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
+          (lsp-ui-doc-show-with-cursor nil)
+          (lsp-lens-enable nil)
+          (lsp-headerline-breadcrumb-enable nil)
+          (lsp-ui-doc-enable nil)
+          (lsp-ui-sideline-enable nil)
   :commands lsp)
 
 ;; optionally
