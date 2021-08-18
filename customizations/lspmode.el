@@ -3,9 +3,7 @@
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c C-l")
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (go-mode . lsp)
-         (rjsx-mode .lsp)
-         (typescript-mode .lsp)f
+         ((go-mode rjsx-mode typescript-mode) . lsp)
          ;;(go-mode . lsp-go-install-save-hooks)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports)
