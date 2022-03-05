@@ -1,15 +1,16 @@
 
 ;; Font and frame size
-(set-face-font 'default "Roboto Mono Light 14")
+;; (set-face-font 'default "Roboto Mono 18")
 (setq default-frame-alist
       (append (list '(width  . 72) '(height . 40)
                     '(vertical-scroll-bars . nil)
                     '(internal-border-width . 24)
-                    '(font . "Roboto Mono Light 14"))))
+                    ;; '(font . "Roboto Mono 18")
+                    )))
 (set-frame-parameter (selected-frame)
                      'internal-border-width 24)
 ;;
-;;(set-face-attribute 'default nil :family  "Roboto Mono" :height 130 :weight 'medium :width 'normal)
+(set-face-attribute 'default nil :family  "Roboto Mono" :height 160 :weight 'normal :width 'normal)
 ;; (set-frame-font "-*-SF Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 ;;(set-face-bold 'bold nil)
 (setq ns-use-proxy-icon t)
@@ -17,8 +18,8 @@
 
 ;; full path in title bar
 
-;;(set-frame-parameter (selected-frame) 'alpha '(98 . 97))
-;; (setq frame-title-format "%b (%f)")
+(set-frame-parameter (selected-frame) 'alpha '(95 . 95))
+(setq frame-title-format "%b (%f)")
 ;; (setq frame-title-format nil)
 ;; Line spacing, can be 0 for code and 1 or 2 for text
 (setq-default line-spacing 0)
@@ -46,7 +47,7 @@
 ;;(global-linum-mode)
 ;;'(linum-format " %3i ")
 (normal-erase-is-backspace-mode +1)
-(load-theme 'doom-badger t)
+(load-theme 'doom-one t)
 ;; These settings relate to how emacs interacts with your operating system
 ;; makes killing/yanking interact with the clipboard
 (setq-default

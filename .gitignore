@@ -24,3 +24,12 @@ ac-comphist.dat
 custom.el
 /.dap-breakpoints
 /.cache/
+transient/
+ido.last
+places/
+eln-cache/
+elpa/
+backups/
+auto-save-list/
+/old-custom.el
+/type-break
