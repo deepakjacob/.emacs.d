@@ -57,10 +57,13 @@
   page-break-lines
 
   hungry-delete
-  rustic
   lsp-mode
   company
-  
+  rust-mode
+	lsp-ui
+	lsp-ivy
+  dap-mode
+	
   ))
 
 ;; On OS X, an Emacs instance started from the graphical user
