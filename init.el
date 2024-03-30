@@ -16,7 +16,9 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
-  evil
+		evil
+		evil-collection
+  diminish
   smex
   projectile
   rainbow-delimiters

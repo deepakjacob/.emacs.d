@@ -12,6 +12,7 @@
 (global-hl-line-mode 1)
 (electric-pair-mode)
 (electric-indent-mode)
+(winum-mode)
 
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message t)
@@ -23,6 +24,8 @@
 (setq-default sh-indentation 2)
 (setq auto-save-default nil)
 (setq-default tab-width 2)
+(setq pop-up-windows nil)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Load theme
 (load-theme 'modus-operandi t)

@@ -1,7 +1,28 @@
+(use-package diminish :ensure t)
+
 (use-package evil
   :ensure t
   :config
   (evil-mode 1))
+
+(use-package neotree
+  :defer t
+  :bind
+  (("C-c n" . neotree-toggle)
+  ("C-c i" . neotree-dir)
+  ("C-c f" . neotree-find))
+  :config
+  (setq-default neo-theme (quote ascii))
+  (setq-default neo-window-fixed-size nil)
+  (setq-default neo-window-position 'right)
+  (setq-default neo-window-width 45)
+  (setq-default doom-neotree-folder-size 1.0)
+  )
+
+(use-package magit
+  :ensure t
+  :bind
+  (("C-c m" . 'magit-status)))
 
 (use-package projectile
   :ensure t
@@ -15,15 +36,6 @@
   :ensure t
   :config
   (ivy-mode 1))
-
-(use-package mini-frame
-  :ensure t
-  :config
-  (mini-frame-mode 1)
-  (setq mini-frame-show-parameters
-        '((top . 0)
-          (width . 0.7)
-          (left . 0.5))))
 
 (use-package ivy-posframe
   :ensure t

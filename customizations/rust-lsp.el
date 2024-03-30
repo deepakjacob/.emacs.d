@@ -1,7 +1,8 @@
 (use-package rustic
   :ensure t
+   :custom
+  (rustic-analyzer-command '("rustup" "run" "stable" "rust-analyzer"))
   :config
-  (setq rustic-lsp-server 'rust-analyzer)
   (setq rustic-format-on-save t))
 
 (use-package lsp-mode
@@ -21,4 +22,4 @@
   :config
   (push 'company-capf company-backends))
 
-;; Add additional rust-specific keybindings and settings here
+;; Add additional rust-specific keybindings and settings here 
