@@ -26,6 +26,7 @@
 (setq-default tab-width 2)
 (setq pop-up-windows nil)
 (fset 'yes-or-no-p 'y-or-n-p)
+(set-frame-font "Inconsolata Nerd Font Mono 13" nil t)
 
 ;; Load theme
-(load-theme 'modus-operandi t)
+(load-theme 'doom-ir-black t)
