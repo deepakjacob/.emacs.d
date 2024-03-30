@@ -87,7 +87,9 @@
   (load-file (expand-file-name (concat "customizations/" file) user-emacs-directory)))
 
 ;; Load separate config files from the 'customizations' directory
-(load-custom-config "rust-lsp.el")
 (load-custom-config "startup.el")
 (load-custom-config "ui.el")
+
+(load-custom-config "rust-lsp.el")
+
 
