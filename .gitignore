@@ -1,3 +1,5 @@
 .lsp-session-v1
 elpa/
 projectile-bookmarks.eld
+custom.el
+transient/
