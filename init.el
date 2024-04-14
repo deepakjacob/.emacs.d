@@ -66,6 +66,7 @@
   (setq-default indent-tabs-mode nil)           ;; Use spaces for indentation
   (setq-default default-tab-width 2)            ;; Set default tab width to 2
   (fset 'yes-or-no-p 'y-or-n-p)                ;; Change yes-or-no-p to y or n
+  (setq backup-inhibited 1)
   )
 ;; optional if you want which-key integration
 (use-package which-key
