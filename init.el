@@ -110,6 +110,8 @@
 
 (use-package lsp-mode
   :requires cape
+  :config
+  (setq lsp-headerline-breadcrumb-enable nil) 
   :custom
   (lsp-completion-provider :none) ;; Corfu is used
   :init
@@ -132,8 +134,26 @@
   :after corfu
   :custom
   (kind-icon-default-face 'corfu-default)
+  (kind-icon-blend-background nil)  ; Use midpoint color between foreground and background colors ("blended")?
+  (kind-icon-blend-frac 0.08)
+
+  ;; NOTE 2022-02-05: `kind-icon' depends `svg-lib' which creates a cache
+  ;; directory that defaults to the `user-emacs-directory'. Here, I change that
+  ;; directory to a location appropriate to `no-littering' conventions, a
+  ;; package which moves directories of other packages to sane locations.
+  (svg-lib-icons-dir "/tmp/svg-lib/cache/") ; Change cache dir
+
   :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
+  ;; Add hook to reset cache so the icon colors match my theme
+  ;; NOTE 2022-02-05: This is a hook which resets the cache whenever I switch
+  ;; the theme using my custom defined command for switching themes. If I don't
+  ;; do this, then the backgound color will remain the same, meaning it will not
+  ;; match the background color corresponding to the current theme. Important
+  ;; since I have a light theme and dark theme I switch between. This has no
+  ;; function unless you use something similar
+  (add-hook 'kb/themes-hooks #'(lambda () (interactive) (kind-icon-reset-cache)))
+  )
 
 (use-package all-the-icons
   :if (display-graphic-p))
@@ -141,9 +161,20 @@
 (use-package dirvish
   :init
   (dirvish-override-dired-mode)
+  :custom
+  (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
+   '(("h" "~/"                          "Home")
+     ("d" "~/Downloads/"                "Downloads")
+     ("m" "/mnt/"                       "Drives")
+     ("t" "~/.local/share/Trash/files/" "TrashCan")))
   :config
   (setq dirvish-mode-line-format '(:left (sort symlink) :right (omit yank index)))
-  :bind (:map dirvish-mode-map
+  (setq dirvish-attributes '(all-the-icons file-time file-size collapse subtree-state vc-state git-msg))
+  (setq delete-by-moving-to-trash t)
+  (setq dired-listing-switches "-l --almost-all --human-readable --group-directories-first --no-group")
+  :bind (
+         ("C-c f" . dirvish-fd)
+	 :map dirvish-mode-map
               ("a" . dirvish-quick-access)
               ("f"   . dirvish-file-info-menu)
               ("y"   . dirvish-yank-menu)
@@ -161,9 +192,17 @@
               ("M-s" . dirvish-setup-menu)
               ("M-e" . dirvish-emerge-menu)
               ("M-j" . dirvish-fd-jump)))
-
 ;; Vertical window divider settings
 (setq window-divider-default-right-width 1 window-divider-default-places 'right-only)
 (window-divider-mode)
 
 
+(setq custom-file null-device) ;; Set custom-file to null device
+
+(defun disable-bold-and-italic-fonts ()
+  "Disable bold and italic fonts globally in all buffers."
+  (mapc (lambda (face)
+          (set-face-attribute face nil :weight 'normal :slant 'normal))
+        (face-list)))
+
+(add-hook 'after-init-hook 'disable-bold-and-italic-fonts)
