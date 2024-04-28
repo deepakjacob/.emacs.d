@@ -1,1 +1,0 @@
-/home/jd/.emacs.d/straight/repos/evil/evil-development.el

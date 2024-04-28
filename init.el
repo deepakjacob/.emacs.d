@@ -5,13 +5,11 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-;; Download the ELPA archive description if needed.
-;; This informs Emacs about the latest versions of all packages, and
-;; makes them available for download.
-(when (not package-archive-contents)
+;; Ensure all packages are available
+(unless package-archive-contents
   (package-refresh-contents))
 
-
+;; Straight.el bootstrap code
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -25,288 +23,118 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
-
-;; The packages you want installed. You can also install these
-;; manually with M-x package-install
-;; Add in your own as you wish:
+;; Define packages to be installed
 (defvar my-packages
-  '(
-    doom-themes
-    use-package
-      evil
-      evil-collection
-      smart-mode-line
-      winum
-      which-key
-      dirvish
-
-      lsp-mode
-      lsp-ui
-      embark
-      embark-consult
-      marginalia
-      vertico
-      rust-mode
-      corfu
-      
-      orderless
-      cape
-      kind-icon
-      svg-lib
-      all-the-icons
-      
-  ))
+  '(doom-themes use-package evil evil-collection smart-mode-line winum which-key dirvish
+    lsp-mode lsp-ui embark embark-consult marginalia vertico rust-mode corfu
+    orderless cape kind-icon svg-lib all-the-icons))
 
 (dolist (p my-packages)
-  (when (not (package-installed-p p))
+  (unless (package-installed-p p)
     (package-install p)))
 
 (defun jd-ui-startup ()
   "Custom startup settings for Emacs."
   (interactive)
-  (setq inhibit-startup-screen t)       ;; Inhibit startup screen
-  (setq inhibit-startup-echo-area-message t)
-  (menu-bar-mode -1)              ;; Disable menu bar
-  (tool-bar-mode -1)              ;; Disable toolbar
-  (setq-default echo-keystrokes 0.1)            ;; Startup echo area message
-  (setq-default auto-save-default nil)          ;; Disable auto-save
-  (setq-default tab-width 2)                    ;; Set tab width to 2
-  (setq-default use-dialog-box nil)             ;; Disable pop-up dialog boxes
-  (setq-default frame-height 60)                ;; Set frame height to 60
-  (setq-default frame-width 90)                 ;; Set frame width to 90
-  (set-frame-font "Comic Code Ligatures-14" nil t) ;; Set font to Inconsolata Nerd Font Mono
-  (tooltip-mode -1)                             ;; Disable tooltips
-  (scroll-bar-mode -1)                          ;; Disable scrollbar
-  (show-paren-mode 1)                           ;; Show matching parentheses
-  (global-hl-line-mode 1)                       ;; Highlight current line
-  (electric-pair-mode 1)                        ;; Enable automatic insertion of matching pairs
-  (electric-indent-mode 1)                      ;; Enable electric indentation
-  (winum-mode 1)                                ;; Use winum mode for window numbering
-  (setq-default create-lockfiles nil)           ;; Disable lock files
-  (setq-default indent-tabs-mode nil)           ;; Use spaces for indentation
-  (setq-default default-tab-width 2)            ;; Set default tab width to 2
-  (fset 'yes-or-no-p 'y-or-n-p)                ;; Change yes-or-no-p to y or n
-  (setq backup-inhibited 1)
-  (load-theme 'doom-ir-black t)
-  )
-;; optional if you want which-key integration
+  (setq inhibit-startup-screen t
+        inhibit-startup-echo-area-message t
+        menu-bar-mode -1
+        tool-bar-mode -1
+        echo-keystrokes 0.1
+        auto-save-default nil
+        tab-width 2
+        use-dialog-box nil
+        frame-height 60
+        frame-width 90
+        create-lockfiles nil
+        indent-tabs-mode nil
+        default-tab-width 2
+        backup-inhibited t)
+  (set-frame-font "Comic Code Ligatures-14" nil t)
+  (tooltip-mode -1)
+  (scroll-bar-mode -1)
+  (show-paren-mode 1)
+  (global-hl-line-mode 1)
+  (electric-pair-mode 1)
+  (electric-indent-mode 1)
+  (winum-mode 1)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (load-theme 'doom-ir-black t))
+(jd-ui-startup)  ;; Apply UI settings at startup
+
 (use-package which-key
-    :config
-    (which-key-mode))
-(jd-ui-startup)  ;; Call jd-ui-startup to apply the settings
-(setq sml/no-confirm-load-theme t)
-
-(sml/setup)
-(setq sml/theme 'dark)
-
-(global-set-key (kbd "C-c d") 'delete-windows-on)
+  :config
+  (which-key-mode))
 
 (use-package evil
-  :ensure t
   :config
   (evil-mode 1))
-;;(setq custom-file null-device) ;; Set custom-file to null device
 
-;; Configure embark for enhanced documentation lookup
-(require 'embark)
-(require 'embark-consult)
-(add-hook 'embark-collect-mode-hook 'embark-consult-preview-minor-mode)
+(use-package embark
+  :requires embark-consult
+  :hook
+  (embark-collect-mode . embark-consult-preview-minor-mode))
 
-;; Enable marginalia for annotation in minibuffer
-(require 'marginalia)
-(marginalia-mode)
+(use-package marginalia
+  :config
+  (marginalia-mode))
 
-;; Configure vertico for better completion
-(require 'vertico)
-(vertico-mode)
-;; Optional cape package.
-;; See the Cape README for more tweaks!
-
+(use-package vertico
+  :config
+  (vertico-mode))
 
 (use-package corfu
-  ;; Optional customizations
   :custom
-  (corfu-auto t)                 ;; Enable auto completion
-  
-  :bind 
-  (:map corfu-map
-       ("TAB" . corfu-next)
-       ([tab] . corfu-next)
-       ("S-TAB" . corfu-previous)
-       ([backtab] . corfu-previous))
-
-  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
-  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
-  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
-  ;; (corfu-scroll-margin 5)        ;; Use scroll margin
-
-  ;; Enable Corfu only for certain modes.
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
-
-  ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
-  ;; be used globally (M-/).  See also the customization variable
-  ;; `global-corfu-modes' to exclude certain modes.
+  (corfu-auto t)
+  :bind (:map corfu-map
+              ("TAB" . corfu-next)
+              ([tab] . corfu-next)
+              ("S-TAB" . corfu-previous)
+              ([backtab] . corfu-previous))
   :init
-  (global-corfu-mode))  
-
-;; A few more useful configurations...
-(use-package emacs
-  :init
-  ;; TAB cycle if there are only few candidates
-  ;; (setq completion-cycle-threshold 3)
-
-  ;; Enable indentation+completion using the TAB key.
-  ;; `completion-at-point' is often bound to M-TAB.
-  (setq tab-always-indent 'complete)
-
-  ;; Emacs 30 and newer: Disable Ispell completion function. As an alternative,
-  ;; try `cape-dict'.
-  (setq text-mode-ispell-word-completion nil)
-
-  ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
-  ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
-  ;; setting is useful beyond Corfu.
-  (setq read-extended-command-predicate #'command-completion-default-include-p))
-  ;; Enable auto completion and configure quitting
-(setq corfu-auto t)
-
-(defun corfu-enable-always-in-minibuffer ()
-  "Enable Corfu in the minibuffer if Vertico/Mct are not active."
-  (unless (or (bound-and-true-p mct--active)
-              (bound-and-true-p vertico--input)
-              (eq (current-local-map) read-passwd-map))
-    ;; (setq-local corfu-auto nil) ;; Enable/disable auto completion
-    (setq-local corfu-echo-delay nil ;; Disable automatic echo and popup
-                corfu-popupinfo-delay nil)
-    (corfu-mode 1)))
-(add-hook 'minibuffer-setup-hook #'corfu-enable-always-in-minibuffer 1)
-      
-;; Optional cape package.
-;; See the Cape README for more tweaks!
-(use-package cape)
+  (global-corfu-mode))
 
 (use-package orderless
   :init
-  ;; Tune the global completion style settings to your liking!
-  ;; This affects the minibuffer and non-lsp completion at point.
   (setq completion-styles '(orderless partial-completion basic)
         completion-category-defaults nil
         completion-category-overrides nil))
 
 (use-package lsp-mode
   :custom
-  (lsp-completion-provider :none) ;; we use Corfu!
+  (lsp-completion-provider :none) ;; Corfu is used
+  :commands lsp
+  :hook ((rust-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration)
+         (lsp-completion-mode . my/lsp-mode-setup-completion)))
 
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  (defun my/orderless-dispatch-flex-first (_pattern index _total)
-    (and (eq index 0) 'orderless-flex))
-
-  (defun my/lsp-mode-setup-completion ()
-    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless))
-    ;; Optionally configure the first word as flex filtered.
-    (add-hook 'orderless-style-dispatchers #'my/orderless-dispatch-flex-first nil 'local)
-    ;; Optionally configure the cape-capf-buster.
-    (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
-  :config
-  (setq lsp-headerline-breadcrumb-enable nil)
-  :hook (
-  (rust-mode . lsp)
-  (lsp-mode . lsp-enable-which-key-integration)
-  (lsp-completion-mode . my/lsp-mode-setup-completion))
-  :commands lsp)
-
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :commands lsp-ui-mode)
 
 (use-package kind-icon
   :after corfu
   :custom
-  (kind-icon-use-icons t)
-  (kind-icon-default-face 'corfu-default) ; Have background color be the same as `corfu' face background
-  (kind-icon-blend-background nil)  ; Use midpoint color between foreground and background colors ("blended")?
-  (kind-icon-blend-frac 0.08)
-
-  ;; NOTE 2022-02-05: `kind-icon' depends `svg-lib' which creates a cache
-  ;; directory that defaults to the `user-emacs-directory'. Here, I change that
-  ;; directory to a location appropriate to `no-littering' conventions, a
-  ;; package which moves directories of other packages to sane locations.
-  (svg-lib-icons-dir "/tmp/svg-lib/cache/") ; Change cache dir
+  (kind-icon-default-face 'corfu-default)
   :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter) ; Enable `kind-icon'
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
-  ;; Add hook to reset cache so the icon colors match my theme
-  ;; NOTE 2022-02-05: This is a hook which resets the cache whenever I switch
-  ;; the theme using my custom defined command for switching themes. If I don't
-  ;; do this, then the backgound color will remain the same, meaning it will not
-  ;; match the background color corresponding to the current theme. Important
-  ;; since I have a light theme and dark theme I switch between. This has no
-  ;; function unless you use something similar
-  (add-hook 'kb/themes-hooks #'(lambda () (interactive) (kind-icon-reset-cache))))
+(use-package all-the-icons
+  :if (display-graphic-p))
 
-(setq custom-file null-device) ;; Set custom-file to null device
-
-(use-package all-the-icons :if (display-graphic-p))
-
-;; (setq custom-file (expand-file-name "emacs-custom.el" temporary-file-directory))
-;;(load custom-file 'no-error)
 (use-package dirvish
   :init
   (dirvish-override-dired-mode)
-  :custom
-  (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
-   '(("h" "~/"                          "Home")
-     ("d" "~/Downloads/"                "Downloads")
-     ("m" "/mnt/"                       "Drives")
-     ("t" "~/.local/share/Trash/files/" "TrashCan")))
   :config
-  ;; (dirvish-peek-mode) ; Preview files in minibuffer
-  ;; (dirvish-side-follow-mode) ; similar to `treemacs-follow-mode'
-  (setq dirvish-mode-line-format
-        '(:left (sort symlink) :right (omit yank index)))
-  (setq dirvish-attributes
-        '(all-the-icons file-time file-size collapse subtree-state vc-state git-msg))
-  (setq delete-by-moving-to-trash t)
-  (setq dired-listing-switches
-        "-l --almost-all --human-readable --group-directories-first --no-group")
-  :bind ; Bind `dirvish|dirvish-side|dirvish-dwim' as you see fit
-  (("C-c f" . dirvish-fd)
-   :map dirvish-mode-map ; Dirvish inherits `dired-mode-map'
-   ("a"   . dirvish-quick-access)
-   ("f"   . dirvish-file-info-menu)
-   ("y"   . dirvish-yank-menu)
-   ("N"   . dirvish-narrow)
-   ("^"   . dirvish-history-last)
-   ("h"   . dirvish-history-jump) ; remapped `describe-mode'
-   ("s"   . dirvish-quicksort)    ; remapped `dired-sort-toggle-or-edit'
-   ("v"   . dirvish-vc-menu)      ; remapped `dired-view-file'
-   ("TAB" . dirvish-subtree-toggle)
-   ("M-f" . dirvish-history-go-forward)
-   ("M-b" . dirvish-history-go-backward)
-   ("M-l" . dirvish-ls-switches-menu)
-   ("M-m" . dirvish-mark-menu)
-   ("M-t" . dirvish-layout-toggle)
-   ("M-s" . dirvish-setup-menu)
-   ("M-e" . dirvish-emerge-menu)
-   ("M-j" . dirvish-fd-jump)))
+  (setq dirvish-mode-line-format '(:left (sort symlink) :right (omit yank index)))
+  :bind (:map dirvish-mode-map
+              ("a" . dirvish-quick-access)))
 
-
-(defun disable-bold-and-italic-fonts ()
-  "Disable bold and italic fonts globally in all buffers."
-  (mapc (lambda (face)
-          (set-face-attribute face nil :weight 'normal :slant 'normal))
-        (face-list)))
-
-(add-hook 'after-init-hook 'disable-bold-and-italic-fonts)
-
-
-;; Vertical window divider
-(setq window-divider-default-right-width 1)
-(setq window-divider-default-places 'right-only)
+;; Vertical window divider settings
+(setq window-divider-default-right-width 1
+      window-divider-default-places 'right-only)
 (window-divider-mode)
+
+
