@@ -1,0 +1,1 @@
+/home/jd/.emacs.d/straight/repos/dirvish/extensions/dirvish-quick-access.el

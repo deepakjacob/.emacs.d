@@ -1,0 +1,1 @@
+/home/jd/.emacs.d/straight/repos/kind-icon/README.md
