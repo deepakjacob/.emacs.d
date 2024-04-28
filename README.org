@@ -1,0 +1,115 @@
+#+TITLE: Emacs Configuration README
+
+* Introduction
+  Configuration details of my Emacs setup - includes initialization of package sources, user interface configurations, and integrations with various essential Emacs packages.
+
+* Package Management
+** Package Initialization
+   Configured to handle packages through a combination of built-in package management and the use of =straight.el= for package installation.
+
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
+#+END_SRC
+
+** Ensuring Availability
+   Ensures that all package archives are refreshed and all packages defined in =my-packages= are installed.
+
+#+BEGIN_SRC emacs-lisp
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (p my-packages)
+  (unless (package-installed-p p)
+    (package-install p)))
+#+END_SRC
+
+** Bootstrap Straight.el
+   =straight.el= is used for more deterministic management of packages.
+
+#+BEGIN_SRC emacs-lisp
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+#+END_SRC
+
+* User Interface Enhancements
+** Basic Settings
+   Sets up the visual aspects of Emacs to be more minimalistic and distraction-free.
+
+#+BEGIN_SRC emacs-lisp
+(defun jd-ui-startup ()
+  (interactive)
+  (setq inhibit-startup-screen t
+        inhibit-startup-echo-area-message t
+        echo-keystrokes 0.1
+        auto-save-default nil
+        tab-width 2
+        use-dialog-box nil
+        frame-height 60
+        frame-width 90
+        create-lockfiles nil
+        indent-tabs-mode nil
+        default-tab-width 2
+        backup-inhibited t)
+  (set-frame-font "Comic Code Ligatures-14" nil t)
+  (tooltip-mode -1)
+  (scroll-bar-mode -1)
+  (show-paren-mode 1)
+  (global-hl-line-mode 1)
+  (electric-pair-mode 1)
+  (electric-indent-mode 1)
+  (winum-mode 1)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (load-theme 'doom-ir-black t)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (global-set-key (kbd "C-c d") 'delete-windows-on)
+)
+#+END_SRC
+
+** Keybindings
+   Configuration for global keybindings.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c d") 'delete-windows-on)
+#+END_SRC
+
+* Package Configurations
+** Evil Mode
+   Integrates Vim keybindings throughout Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package evil
+  :config
+  (evil-mode 1))
+#+END_SRC
+
+** UI Packages
+   Setup for various UI enhancing packages like =which-key=, =marginalia=, and =vertico=.
+
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :config
+  (which-key-mode))
+
+(use-package marginalia
+  :config
+  (marginalia-mode))
+
+(use-package vertico
+  :config
+  (vertico-mode))
+#+END_SRC
