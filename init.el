@@ -41,8 +41,6 @@
   (interactive)
   (setq inhibit-startup-screen t
         inhibit-startup-echo-area-message t
-        menu-bar-mode -1
-        tool-bar-mode -1
         echo-keystrokes 0.1
         auto-save-default nil
         tab-width 2
@@ -62,7 +60,12 @@
   (electric-indent-mode 1)
   (winum-mode 1)
   (fset 'yes-or-no-p 'y-or-n-p)
-  (load-theme 'doom-ir-black t))
+  (load-theme 'doom-ir-black t)
+  (global-set-key (kbd "C-c d") 'delete-windows-on)
+
+  (menu-bar-mode -1)
+  (tool-bar-mode -1) 
+  )
 (jd-ui-startup)  ;; Apply UI settings at startup
 
 (use-package which-key
@@ -103,13 +106,24 @@
         completion-category-defaults nil
         completion-category-overrides nil))
 
+(use-package cape)
+
 (use-package lsp-mode
+  :requires cape
   :custom
   (lsp-completion-provider :none) ;; Corfu is used
-  :commands lsp
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  (defun my/orderless-dispatch-flex-first (_pattern index _total) (and (eq index 0) 'orderless-flex))
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults)) '(orderless))
+    (add-hook 'orderless-style-dispatchers #'my/orderless-dispatch-flex-first nil 'local)
+    (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
   :hook ((rust-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration)
-         (lsp-completion-mode . my/lsp-mode-setup-completion)))
+         (lsp-completion-mode . my/lsp-mode-setup-completion))
+  :commands lsp
+  )
 
 (use-package lsp-ui
   :commands lsp-ui-mode)
@@ -130,11 +144,26 @@
   :config
   (setq dirvish-mode-line-format '(:left (sort symlink) :right (omit yank index)))
   :bind (:map dirvish-mode-map
-              ("a" . dirvish-quick-access)))
+              ("a" . dirvish-quick-access)
+              ("f"   . dirvish-file-info-menu)
+              ("y"   . dirvish-yank-menu)
+              ("N"   . dirvish-narrow)
+              ("^"   . dirvish-history-last)
+              ("h"   . dirvish-history-jump) ; remapped `describe-mode'
+              ("s"   . dirvish-quicksort)    ; remapped `dired-sort-toggle-or-edit'
+              ("v"   . dirvish-vc-menu)      ; remapped `dired-view-file'
+              ("TAB" . dirvish-subtree-toggle)
+              ("M-f" . dirvish-history-go-forward)
+              ("M-b" . dirvish-history-go-backward)
+              ("M-l" . dirvish-ls-switches-menu)
+              ("M-m" . dirvish-mark-menu)
+              ("M-t" . dirvish-layout-toggle)
+              ("M-s" . dirvish-setup-menu)
+              ("M-e" . dirvish-emerge-menu)
+              ("M-j" . dirvish-fd-jump)))
 
 ;; Vertical window divider settings
-(setq window-divider-default-right-width 1
-      window-divider-default-places 'right-only)
+(setq window-divider-default-right-width 1 window-divider-default-places 'right-only)
 (window-divider-mode)
 
 
